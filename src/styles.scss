@@ -1,0 +1,32 @@
+// ========================================
+// MAIN STYLES - Portfolio Website
+// Angular 20
+// ========================================
+
+// Import partials (using @use for modern Sass - must be first!)
+@use 'styles/variables' as *;
+@use 'styles/reset';
+@use 'styles/utilities';
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Permanent+Marker&display=swap');
+
+// ========================================
+// GLOBAL CUSTOM STYLES
+// ========================================
+
+// Smooth scroll for anchor links
+html {
+  scroll-padding-top: 80px; // Offset for fixed header
+}
+
+// Main app wrapper
+app-root {
+  display: block;
+  min-height: 100vh;
+}
+
+// Router outlet wrapper
+router-outlet {
+  display: none;
+}

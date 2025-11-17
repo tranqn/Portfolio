@@ -1,0 +1,203 @@
+// ========================================
+// UTILITY CLASSES
+// ========================================
+
+@use 'variables' as *;
+
+// Container
+.container {
+  @include container;
+}
+
+// Text alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Text colors
+.text-primary { color: $text-primary; }
+.text-secondary { color: $text-secondary; }
+.text-dark { color: $text-dark; }
+.text-muted { color: $text-muted; }
+.text-blue { color: $primary-blue; }
+
+// Background colors
+.bg-dark { background-color: $dark-bg; }
+.bg-light { background-color: $light-bg; }
+.bg-white { background-color: $white; }
+
+// Display
+.d-none { display: none; }
+.d-block { display: block; }
+.d-inline { display: inline; }
+.d-inline-block { display: inline-block; }
+.d-flex { display: flex; }
+
+// Flexbox
+.flex-center {
+  @include flex-center;
+}
+
+.flex-between {
+  @include flex-between;
+}
+
+.flex-column {
+  @include flex-column;
+}
+
+.flex-wrap { flex-wrap: wrap; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.justify-start { justify-content: flex-start; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+
+.align-start { align-items: flex-start; }
+.align-center { align-items: center; }
+.align-end { align-items: flex-end; }
+.align-stretch { align-items: stretch; }
+
+// Spacing (margin & padding)
+.m-0 { margin: 0; }
+.mt-0 { margin-top: 0; }
+.mr-0 { margin-right: 0; }
+.mb-0 { margin-bottom: 0; }
+.ml-0 { margin-left: 0; }
+
+.p-0 { padding: 0; }
+.pt-0 { padding-top: 0; }
+.pr-0 { padding-right: 0; }
+.pb-0 { padding-bottom: 0; }
+.pl-0 { padding-left: 0; }
+
+// Common spacing values
+@each $size, $value in (
+  'xs': $spacing-xs,
+  'sm': $spacing-sm,
+  'md': $spacing-md,
+  'lg': $spacing-lg,
+  'xl': $spacing-xl,
+  '2xl': $spacing-2xl,
+  '3xl': $spacing-3xl,
+  '4xl': $spacing-4xl
+) {
+  .m-#{$size} { margin: $value; }
+  .mt-#{$size} { margin-top: $value; }
+  .mr-#{$size} { margin-right: $value; }
+  .mb-#{$size} { margin-bottom: $value; }
+  .ml-#{$size} { margin-left: $value; }
+
+  .p-#{$size} { padding: $value; }
+  .pt-#{$size} { padding-top: $value; }
+  .pr-#{$size} { padding-right: $value; }
+  .pb-#{$size} { padding-bottom: $value; }
+  .pl-#{$size} { padding-left: $value; }
+}
+
+// Width & Height
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.vh-100 { height: 100vh; }
+.vw-100 { width: 100vw; }
+
+// Position
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed { position: fixed; }
+.sticky { position: sticky; }
+
+// Overflow
+.overflow-hidden { overflow: hidden; }
+.overflow-auto { overflow: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-y-hidden { overflow-y: hidden; }
+
+// Cursor
+.cursor-pointer { cursor: pointer; }
+.cursor-default { cursor: default; }
+.cursor-not-allowed { cursor: not-allowed; }
+
+// Border radius
+.rounded-sm { border-radius: $radius-sm; }
+.rounded-md { border-radius: $radius-md; }
+.rounded-lg { border-radius: $radius-lg; }
+.rounded-xl { border-radius: $radius-xl; }
+.rounded-full { border-radius: $radius-full; }
+
+// Shadow
+.shadow-sm { box-shadow: $shadow-sm; }
+.shadow-md { box-shadow: $shadow-md; }
+.shadow-lg { box-shadow: $shadow-lg; }
+
+// Visibility
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+// Opacity
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+// Transitions
+.transition-fast { transition: all $transition-fast; }
+.transition-base { transition: all $transition-base; }
+.transition-slow { transition: all $transition-slow; }
+
+// Z-index
+.z-base { z-index: $z-base; }
+.z-sticky { z-index: $z-sticky; }
+.z-fixed { z-index: $z-fixed; }
+.z-modal { z-index: $z-modal; }
+
+// Responsive utilities
+@include breakpoint(md) {
+  .hide-md { display: none; }
+  .show-md { display: block; }
+}
+
+@include breakpoint(lg) {
+  .hide-lg { display: none; }
+  .show-lg { display: block; }
+}
+
+// Legal page specific styles
+.legal-page {
+  background-color: $light-bg;
+  color: $text-dark;
+  min-height: calc(100vh - 200px);
+  padding: $spacing-3xl 0;
+
+  .container {
+    max-width: $container-lg;
+  }
+
+  h1 {
+    color: $text-dark;
+    margin-bottom: $spacing-xl;
+    font-size: $font-size-3xl;
+  }
+
+  h2 {
+    color: $text-dark;
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-md;
+    font-size: $font-size-2xl;
+  }
+
+  h3 {
+    color: $text-dark;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-sm;
+    font-size: $font-size-xl;
+  }
+
+  p {
+    color: $text-dark;
+    line-height: $line-height-relaxed;
+    margin-bottom: $spacing-md;
+  }
+}

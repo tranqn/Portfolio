@@ -1,0 +1,260 @@
+// ========================================
+// COLOR PALETTE (Based on Mockup)
+// ========================================
+
+// Primary Colors
+$dark-bg: #0A0A0F;              // Almost black background (hero, skills, contact, footer)
+$white: #FFFFFF;                 // White text and light sections
+$light-bg: #F5F5F5;             // Light section backgrounds (about, projects, testimonials)
+
+// Accent Colors
+$primary-blue: #3DCBFF;         // Logo, links, accents, main brand color
+$bright-yellow: #FFD166;        // Yellow stickers, arrows
+$coral-orange: #FF6B6B;         // Testimonials, contact logo circle
+$blue-sticky: #4A90E2;          // "I've got Peel" sticky note
+
+// Sticker Colors
+$sticker-yellow: #FFD166;       // "Based in Munich"
+$sticker-blue: #4ECDC4;         // "Open to relocate"
+$sticker-orange: #FF6B6B;       // "Open to work remote"
+
+// Text Colors
+$text-primary: #FFFFFF;         // Primary text (on dark backgrounds)
+$text-secondary: #E5E5E5;       // Secondary text (slightly dimmed)
+$text-dark: #1A1A1A;            // Text on light backgrounds
+$text-muted: #666666;           // Muted/label text
+
+// Border & Outline Colors
+$border-light: #E0E0E0;         // Light borders
+$border-dark: #2A2A2A;          // Dark borders
+$outline-white: #FFFFFF;        // Button outlines on dark bg
+$outline-dark: #1A1A1A;         // Button outlines on light bg
+
+// Shadow Colors
+$shadow-light: rgba(0, 0, 0, 0.1);
+$shadow-medium: rgba(0, 0, 0, 0.2);
+$shadow-dark: rgba(0, 0, 0, 0.3);
+
+// ========================================
+// TYPOGRAPHY
+// ========================================
+
+// Font Families
+$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-handwritten: 'Permanent Marker', cursive; // For polaroid caption
+
+// Font Sizes
+$font-size-xs: 0.75rem;         // 12px
+$font-size-sm: 0.875rem;        // 14px
+$font-size-base: 1rem;          // 16px
+$font-size-md: 1.125rem;        // 18px
+$font-size-lg: 1.25rem;         // 20px
+$font-size-xl: 1.5rem;          // 24px
+$font-size-2xl: 2rem;           // 32px
+$font-size-3xl: 3rem;           // 48px
+$font-size-4xl: 4rem;           // 64px
+$font-size-5xl: 5rem;           // 80px - For "Frontend DEVELOPER"
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// Letter Spacing
+$letter-spacing-tight: -0.02em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.05em;
+
+// ========================================
+// SPACING (Based on 8px grid)
+// ========================================
+
+$spacing-xs: 0.5rem;            // 8px
+$spacing-sm: 1rem;              // 16px
+$spacing-md: 1.5rem;            // 24px
+$spacing-lg: 2rem;              // 32px
+$spacing-xl: 3rem;              // 48px
+$spacing-2xl: 4rem;             // 64px
+$spacing-3xl: 6rem;             // 96px
+$spacing-4xl: 8rem;             // 128px
+
+// Container Widths
+$container-sm: 640px;
+$container-md: 768px;
+$container-lg: 1024px;
+$container-xl: 1280px;
+$container-2xl: 1440px;
+$container-max: 1920px;
+
+// ========================================
+// BREAKPOINTS
+// ========================================
+
+$breakpoint-xs: 320px;          // Mobile small
+$breakpoint-sm: 375px;          // Mobile medium
+$breakpoint-md: 768px;          // Tablet
+$breakpoint-lg: 1024px;         // Desktop small
+$breakpoint-xl: 1440px;         // Desktop
+$breakpoint-2xl: 1920px;        // Desktop large
+
+// ========================================
+// EFFECTS
+// ========================================
+
+// Border Radius
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;           // For circular elements
+
+// Transitions
+$transition-fast: 75ms ease;
+$transition-base: 100ms ease;
+$transition-slow: 125ms ease;
+$transition-slower: 200ms ease;
+
+// Shadows
+$shadow-sm: 0 2px 4px $shadow-light;
+$shadow-md: 0 4px 8px $shadow-medium;
+$shadow-lg: 0 8px 16px $shadow-dark;
+$shadow-polaroid: 0 4px 8px $shadow-medium;
+
+// Z-index layers
+$z-base: 1;
+$z-dropdown: 100;
+$z-sticky: 200;
+$z-fixed: 300;
+$z-modal-backdrop: 400;
+$z-modal: 500;
+$z-popover: 600;
+$z-tooltip: 700;
+
+// ========================================
+// MIXINS
+// ========================================
+
+// Responsive breakpoints
+@mixin breakpoint($size) {
+  @if $size == xs {
+    @media (min-width: $breakpoint-xs) { @content; }
+  } @else if $size == sm {
+    @media (min-width: $breakpoint-sm) { @content; }
+  } @else if $size == md {
+    @media (min-width: $breakpoint-md) { @content; }
+  } @else if $size == lg {
+    @media (min-width: $breakpoint-lg) { @content; }
+  } @else if $size == xl {
+    @media (min-width: $breakpoint-xl) { @content; }
+  } @else if $size == 2xl {
+    @media (min-width: $breakpoint-2xl) { @content; }
+  }
+}
+
+// Container
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-md;
+  padding-right: $spacing-md;
+
+  @include breakpoint(md) {
+    padding-left: $spacing-xl;
+    padding-right: $spacing-xl;
+  }
+
+  @include breakpoint(xl) {
+    padding-left: $spacing-2xl;
+    padding-right: $spacing-2xl;
+  }
+}
+
+// Flexbox utilities
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Button reset
+@mixin button-reset {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+// Outlined button (from mockup)
+@mixin button-outlined($color: $outline-white, $hover-color: $primary-blue) {
+  @include button-reset;
+  border: 2px solid $color;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-full;
+  color: $color;
+  font-weight: $font-weight-medium;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $hover-color;
+    color: $hover-color;
+    transform: translateY(-2px);
+  }
+}
+
+// Torn paper edge effect
+@mixin torn-edge($fill-color: $white, $position: bottom) {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    @if $position == bottom {
+      bottom: -1px;
+    } @else {
+      top: -1px;
+    }
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z' fill='#{$fill-color}'/%3E%3C/svg%3E");
+    background-size: cover;
+    pointer-events: none;
+  }
+}
+
+// Rotation effect (for stickers, testimonials)
+@mixin rotate($deg) {
+  transform: rotate(#{$deg}deg);
+}
+
+// Text shadow for better readability
+@mixin text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
