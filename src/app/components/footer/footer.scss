@@ -1,0 +1,54 @@
+@use '../../../styles/variables' as *;
+
+// ========================================
+// FOOTER
+// ========================================
+
+.footer {
+  background-color: $dark-bg;
+  padding: $spacing-xl 0;
+  border-top: 1px solid rgba($outline-white, 0.1);
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: $spacing-lg;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}
+
+// Logo
+.footer__logo-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+// Copyright
+.footer__copyright {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  color: $text-secondary;
+}
+
+// Links
+.footer__links {
+  display: flex;
+  gap: $spacing-lg;
+}
+
+.footer__link {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-medium;
+  color: $text-primary;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-blue;
+  }
+}

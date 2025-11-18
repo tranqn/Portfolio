@@ -1,0 +1,146 @@
+@use '../../../styles/variables' as *;
+
+// ========================================
+// PROJECTS SECTION
+// ========================================
+
+.projects {
+  position: relative;
+  background-color: $light-bg;
+  padding: $spacing-4xl 0;
+}
+
+.projects__container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}
+
+// Header
+.projects__header {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  margin-bottom: $spacing-3xl;
+}
+
+.projects__label {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $text-secondary;
+  text-transform: uppercase;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.projects__title {
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-black;
+  color: $text-dark;
+  margin: 0;
+}
+
+.projects__description {
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  color: $text-dark;
+  margin: 0;
+  max-width: 800px;
+}
+
+// Projects Grid
+.projects__grid {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3xl;
+}
+
+// Project Card
+.projects__card {
+  display: flex;
+  gap: $spacing-3xl;
+  align-items: center;
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+}
+
+.projects__card-image {
+  width: 50%;
+  max-width: 600px;
+  height: auto;
+  border-radius: $radius-lg;
+  object-fit: cover;
+  box-shadow: $shadow-card;
+}
+
+.projects__card-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  flex: 1;
+}
+
+.projects__card-title {
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-black;
+  color: $text-dark;
+  margin: 0;
+}
+
+.projects__card-tech {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $primary-blue;
+  margin: 0;
+}
+
+.projects__card-description {
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  color: $text-dark;
+  margin: 0;
+}
+
+.projects__card-buttons {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-sm;
+}
+
+.projects__card-button {
+  padding: 12px 24px;
+  border-radius: $radius-full;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &--primary {
+    background-color: $primary-blue;
+    color: $text-primary;
+    border: 2px solid $primary-blue;
+
+    &:hover {
+      background-color: transparent;
+      color: $primary-blue;
+      transform: translateY(-2px);
+    }
+  }
+
+  &--secondary {
+    background-color: transparent;
+    color: $text-dark;
+    border: 2px solid $text-dark;
+
+    &:hover {
+      background-color: $text-dark;
+      color: $text-primary;
+      transform: translateY(-2px);
+    }
+  }
+}
