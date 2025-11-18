@@ -33,6 +33,31 @@ body {
   overflow-x: hidden;
 }
 
+// Custom Scrollbar (White)
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $text-primary;
+  border-radius: 6px;
+  border: 3px solid $dark-bg;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: lighten($text-primary, 10%);
+}
+
+// Firefox scrollbar
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $text-primary $dark-bg;
+}
+
 // Headings
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-heading;

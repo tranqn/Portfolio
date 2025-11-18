@@ -7,21 +7,21 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  background-image: url('/Design material/01_Background/Design Size Relation@3x/01_Hero.png');
+  background-image: url('/Design%20material/01_Background/Design%20Size%20Relation%403x/01_Hero.png');
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   background-repeat: no-repeat;
   background-color: $dark-bg;
-  padding-top: 90px; // Account for fixed header
+  object-fit: cover;
 }
 
 .hero__container {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   max-width: $container-max-width;
-  height: calc(100vh - 90px);
+  height: 100vh;
   margin: 0 auto;
   padding-left: $container-padding-x;
   padding-right: $container-padding-x;
@@ -35,6 +35,8 @@
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  height: 70vh;
   gap: $spacing-md;
   z-index: $z-base;
 }
@@ -70,7 +72,8 @@
 .hero__content-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: flex-end;
+  gap: $spacing-3xl;
   width: 100%;
   max-width: 1200px;
 }
@@ -78,6 +81,8 @@
 .hero__content-left {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   gap: $spacing-sm;
 }
 
@@ -136,7 +141,7 @@
 .hero__content-bottom {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
   gap: $spacing-lg;
   width: 100%;
 }
@@ -145,4 +150,5 @@
 .hero__button {
   @include button-outlined($outline-white, $primary-blue);
   font-size: $font-size-md;
+  padding: 12px 20px;
 }
