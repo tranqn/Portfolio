@@ -1,9 +1,75 @@
-header {
-    nav{
-        ul{
-            display: flex;
-            justify-content: space-between;
-            list-style-type: none;
-        }
-    }
+@use '../../../styles/variables' as *;
+
+// ========================================
+// HEADER - Fixed Transparent Overlay
+// ========================================
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: transparent;
+  z-index: $z-fixed;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}
+
+// Logo
+.header__logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.header__logo-image {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+// Navigation
+.header__nav {
+  display: flex;
+  align-items: center;
+}
+
+.header__nav-list {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xl;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header__nav-item {
+  margin: 0;
+}
+
+.header__nav-link {
+  color: $text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: color $transition-base;
+
+  &:hover {
+    color: $primary-blue;
+  }
 }

@@ -7,17 +7,17 @@ export const routes: Routes = [
   {
     path: '',
     component: Main,
-    title: 'Karl Heinzman - Frontend Developer'
+    title: 'Quoc Nam Tran - Frontend Developer'
   },
   {
     path: 'legal-notice',
     component: LegalNotice,
-    title: 'Legal Notice - Karl Heinzman'
+    title: 'Legal Notice - Quoc Nam Tran'
   },
   {
     path: 'privacy-policy',
     component: PrivacyPolicy,
-    title: 'Privacy Policy - Karl Heinzman'
+    title: 'Privacy Policy - Quoc Nam Tran'
   },
   {
     path: '**',

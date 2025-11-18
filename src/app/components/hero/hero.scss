@@ -1,0 +1,148 @@
+@use '../../../styles/variables' as *;
+
+// ========================================
+// HERO SECTION - Shared Background with Header
+// ========================================
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('/Design material/01_Background/Design Size Relation@3x/01_Hero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: $dark-bg;
+  padding-top: 90px; // Account for fixed header
+}
+
+.hero__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: $container-max-width;
+  height: calc(100vh - 90px);
+  margin: 0 auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}
+
+// Social Icons (Positioned on left)
+.hero__social {
+  position: absolute;
+  left: $spacing-xl;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  z-index: $z-base;
+}
+
+.hero__social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.hero__social-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+// Main Content
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+  width: 100%;
+}
+
+.hero__content-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero__content-left {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+// Availability Badge
+.hero__badge {
+  display: inline-block;
+  padding: $spacing-xs $spacing-sm;
+  background-color: $sticker-yellow;
+  color: $text-dark;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  border-radius: $radius-md;
+  transform: rotate(-2deg);
+}
+
+// Title
+.hero__title {
+  margin: 0;
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-black;
+  line-height: $line-height-tight;
+  letter-spacing: $letter-spacing-tight;
+  color: $text-primary;
+  text-transform: uppercase;
+}
+
+.hero__title--top {
+  text-align: left;
+}
+
+.hero__title--bottom {
+  text-align: center;
+}
+
+// Polaroid
+.hero__content-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__polaroid {
+  width: 280px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow($shadow-polaroid);
+  transform: rotate(8deg);
+  transition: transform $transition-slow;
+
+  &:hover {
+    transform: rotate(5deg) scale(1.02);
+  }
+}
+
+// Bottom Section
+.hero__content-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-lg;
+  width: 100%;
+}
+
+// CTA Button
+.hero__button {
+  @include button-outlined($outline-white, $primary-blue);
+  font-size: $font-size-md;
+}
