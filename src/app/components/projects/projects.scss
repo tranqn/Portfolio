@@ -6,11 +6,14 @@
 
 .projects {
   position: relative;
-  background-color: $light-bg;
+  background-color: transparent;
   padding: $spacing-4xl 0;
 }
 
 .projects__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-4xl;
   max-width: $container-max-width;
   margin: 0 auto;
   padding-left: $container-padding-x;
@@ -22,7 +25,8 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
-  margin-bottom: $spacing-3xl;
+  flex-basis: 400px;
+  flex-shrink: 0;
 }
 
 .projects__label {
@@ -46,30 +50,19 @@
   line-height: $line-height-relaxed;
   color: $text-dark;
   margin: 0;
-  max-width: 800px;
-}
-
-// Projects Grid
-.projects__grid {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-3xl;
 }
 
 // Project Card
 .projects__card {
   display: flex;
-  gap: $spacing-3xl;
-  align-items: center;
-
-  &:nth-child(even) {
-    flex-direction: row-reverse;
-  }
+  flex-direction: column;
+  gap: $spacing-lg;
+  flex-basis: calc(50% - $spacing-4xl / 2);
+  flex-grow: 1;
 }
 
 .projects__card-image {
-  width: 50%;
-  max-width: 600px;
+  width: 100%;
   height: auto;
   border-radius: $radius-lg;
   object-fit: cover;

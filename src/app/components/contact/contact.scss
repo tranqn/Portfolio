@@ -6,8 +6,12 @@
 
 .contact {
   position: relative;
-  background-color: $dark-bg;
-  padding: $spacing-4xl 0;
+  background-image: url('/Design%20material/01_Background/Design%20Size%20Relation%403x/06_Contact.png');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  padding: $spacing-4xl 0 150px 0; // Extra bottom padding to extend background for footer overlay (footer height ~200px)
 }
 
 .contact__container {
@@ -16,9 +20,26 @@
   align-items: flex-start;
   gap: $spacing-3xl;
   max-width: $container-max-width;
-  margin: 0 auto 80px;
+  margin: 0 auto;
   padding-left: $container-padding-x;
   padding-right: $container-padding-x;
+}
+
+// Left column: Content + Form
+.contact__left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-3xl;
+  max-width: 600px;
+}
+
+// Right column: Logo
+.contact__right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 // Content (Left)
@@ -72,17 +93,12 @@
   object-fit: contain;
 }
 
-// Form Container
-.contact__form-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 $container-padding-x;
-}
-
+// Form (inside left column)
 .contact__form {
   display: flex;
   flex-direction: column;
   gap: $spacing-lg;
+  width: 100%;
 }
 
 // Form Groups

@@ -5,20 +5,34 @@
 // ========================================
 
 .footer {
-  background-color: $dark-bg;
-  padding: $spacing-xl 0;
-  border-top: 1px solid rgba($outline-white, 0.1);
+  position: relative;
+  background-color: transparent;
+  padding: $spacing-xl 0 0 0; // No bottom padding to avoid gap at page bottom
+  margin-top: -200px; // Pull footer up higher to overlay contact section
+  z-index: $z-sticky; // Ensure footer overlays contact
 }
 
 .footer__container {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
   gap: $spacing-lg;
   max-width: $container-max-width;
   margin: 0 auto;
   padding-left: $container-padding-x;
   padding-right: $container-padding-x;
+}
+
+// Top: Logo + Copyright (horizontal)
+.footer__container__top {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+// Bottom: Links (spread horizontally)
+.footer__container__bottom {
+  width: 100%;
 }
 
 // Logo
@@ -35,10 +49,11 @@
   color: $text-secondary;
 }
 
-// Links
+// Links (spread across the full width)
 .footer__links {
   display: flex;
-  gap: $spacing-lg;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .footer__link {

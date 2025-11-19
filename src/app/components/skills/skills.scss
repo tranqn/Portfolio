@@ -6,7 +6,11 @@
 
 .skills {
   position: relative;
-  background-color: $dark-bg;
+  background-image: url('/Design%20material/01_Background/Design%20Size%20Relation%403x/03_Skills.png');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: transparent;
   padding: $spacing-4xl 0;
 }
 
@@ -69,9 +73,14 @@
   max-width: 600px;
 }
 
+.skills__badge__container {
+  align-self: flex-end;
+  display: flex;
+  align-items: end;
+}
+
 // Badge (I'm for peel!)
 .skills__badge {
-  flex-shrink: 0;
   padding: $spacing-md $spacing-lg;
   background-color: $primary-blue;
   border-radius: $radius-md;

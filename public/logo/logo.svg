@@ -1,6 +1,6 @@
-<!--?xml version="1.0" encoding="UTF-8"?-->
+<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="QT logo">
-  
+
   <!-- Background -->
   <rect width="100%" height="100%" fill="#00FF0000"></rect>
 
@@ -25,5 +25,3 @@
   </g>
 
 </svg>
-
-i finished the header and hero components. make the other components look like Portfolio_demo.jpg

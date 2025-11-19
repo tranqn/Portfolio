@@ -11,8 +11,9 @@
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-  background-color: $dark-bg;
+  background-color: transparent;
   object-fit: cover;
+  margin-bottom: 0;
 }
 
 .hero__container {
