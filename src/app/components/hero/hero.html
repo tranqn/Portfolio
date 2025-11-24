@@ -3,13 +3,13 @@
     <!-- Social Icons -->
     <div class="hero__social">
       <a href="https://linkedin.com" target="_blank" class="hero__social-link" aria-label="LinkedIn">
-        <img src="img/linkedin.svg" alt="LinkedIn" class="hero__social-icon">
+        <img src="/img/shared/linkedin.svg" alt="LinkedIn" class="hero__social-icon">
       </a>
       <a href="https://github.com" target="_blank" class="hero__social-link" aria-label="GitHub">
-        <img src="img/github.svg" alt="GitHub" class="hero__social-icon">
+        <img src="/img/shared/github.svg" alt="GitHub" class="hero__social-icon">
       </a>
       <a href="mailto:contact@example.com" class="hero__social-link" aria-label="Email">
-        <img src="img/email.svg" alt="Email" class="hero__social-icon">
+        <img src="/img/shared/email.svg" alt="Email" class="hero__social-icon">
       </a>
     </div>
 
@@ -17,17 +17,17 @@
     <div class="hero__content">
       <div class="hero__content-top">
         <div class="hero__content-left">
-          <button class="hero__button">Hello World</button>
-          <h1 class="hero__title hero__title--top">Frontend</h1>
+          <button class="hero__button">{{ 'HERO.HELLO' | translate }}</button>
+          <h1 class="hero__title hero__title--top">{{ 'HERO.FRONTEND' | translate }}</h1>
         </div>
         <div class="hero__content-right">
-          <img src="img/polaroid.png" alt="Nam :)" class="hero__polaroid">
+          <img src="/img/hero/Polaroid Frame.png" alt="Nam :)" class="hero__polaroid">
         </div>
       </div>
 
       <div class="hero__content-bottom">
-        <h1 class="hero__title hero__title--bottom">DEVELOPER</h1>
-        <a href="#contact" class="hero__button">Get in Touch</a>
+        <h1 class="hero__title hero__title--bottom">{{ 'HERO.DEVELOPER' | translate }}</h1>
+        <a href="#contact" class="hero__button">{{ 'HERO.GET_IN_TOUCH' | translate }}</a>
       </div>
     </div>
   </div>

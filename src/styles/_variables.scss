@@ -1,62 +1,68 @@
 // ========================================
-// COLOR PALETTE (Based on Mockup)
+// COLOR PALETTE (Based on Portfolio_demo.jpg)
 // ========================================
 
-// Primary Colors
-$dark-bg: #0A0A0F;              // Almost black background (hero, skills, contact, footer)
-$white: #FFFFFF;                 // White text and light sections
-$light-bg: #F5F5F5;             // Light section backgrounds (about, projects, testimonials)
+// Primary Colors (from Figma specs)
+$dark-bg: #0E1013;              // Version 6/Black - hero, skills, contact, footer
+$white: #F8F9FA;                // Version 6/White - text and light sections
+$light-bg: #F8F9FA;             // Light section backgrounds (about, projects)
 
-// Accent Colors
-$primary-blue: #3DCBFF;         // Logo, links, accents, main brand color
-$bright-yellow: #FFD166;        // Yellow stickers, arrows
-$coral-orange: #FF6B6B;         // Testimonials, contact logo circle
-$blue-sticky: #4A90E2;          // "I've got Peel" sticky note
+// Accent Colors (from Figma specs)
+$primary-blue: #3355FF;         // Version 6/Blue - Logo, links, accents
+$bright-yellow: #F7C518;        // Version 6/Yellow - Form underlines, arrows
+$coral-orange: #F87A55;         // Version 6/Orange - Testimonials, stickers
+$blue-sticky: #3355FF;          // Blue sticky note
 
-// Sticker Colors
-$sticker-yellow: #FFD166;       // "Based in Munich"
-$sticker-blue: #4ECDC4;         // "Open to relocate"
-$sticker-orange: #FF6B6B;       // "Open to work remote"
+// Sticker Colors (from design)
+$sticker-yellow: #F7C518;       // Yellow ripped paper sticker
+$sticker-blue: #3355FF;         // Blue ripped paper sticker
+$sticker-orange: #F87A55;       // Orange ripped paper sticker
 
 // Text Colors
-$text-primary: #FFFFFF;         // Primary text (on dark backgrounds)
+$text-primary: #F8F9FA;         // Version 6/White - Primary text (on dark backgrounds)
 $text-secondary: #E5E5E5;       // Secondary text (slightly dimmed)
-$text-dark: #1A1A1A;            // Text on light backgrounds
+$text-dark: #0E1013;            // Version 6/Black - Text on light backgrounds
 $text-muted: #666666;           // Muted/label text
 
 // Border & Outline Colors
 $border-light: #E0E0E0;         // Light borders
 $border-dark: #2A2A2A;          // Dark borders
-$outline-white: #FFFFFF;        // Button outlines on dark bg
-$outline-dark: #1A1A1A;         // Button outlines on light bg
+$outline-white: #F8F9FA;        // Button outlines on dark bg
+$outline-dark: #0E1013;         // Button outlines on light bg
 
 // Shadow Colors
 $shadow-light: rgba(0, 0, 0, 0.1);
-$shadow-medium: rgba(0, 0, 0, 0.2);
-$shadow-dark: rgba(0, 0, 0, 0.3);
+$shadow-medium: rgba(0, 0, 0, 0.16);
+$shadow-dark: rgba(0, 0, 0, 0.24);
 
 // ========================================
-// TYPOGRAPHY
+// TYPOGRAPHY (Based on Figma specs)
 // ========================================
 
 // Font Families
-$font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-$font-handwritten: 'Permanent Marker', cursive; // For polaroid caption
+$font-primary: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-handwritten: 'Kalam', cursive; // For polaroid caption
 
-// Font Sizes (PX-BASED)
+// Font Sizes (PX-BASED - from Figma)
 $font-size-xs: 12px;
 $font-size-sm: 14px;
 $font-size-base: 16px;
-$font-size-md: 18px;
-$font-size-lg: 20px;
-$font-size-xl: 24px;
+$font-size-md: 18px;           // Body text
+$font-size-lg: 20px;           // Labels, small headings
+$font-size-xl: 24px;           // Project titles, form labels
 $font-size-2xl: 32px;
 $font-size-3xl: 48px;
-$font-size-4xl: 64px;
-$font-size-5xl: 110px; // For "Frontend DEVELOPER"
+$font-size-4xl: 64px;          // Section titles (About me, Skill set, Projects)
+$font-size-5xl: 128px;         // Hero "Frontend DEVELOPER"
 
-// Font Weights
+// Responsive Font Sizes
+$font-size-5xl-mobile: 48px;
+$font-size-4xl-mobile: 36px;
+$font-size-3xl-mobile: 32px;
+$font-size-2xl-mobile: 24px;
+
+// Font Weights (Bricolage Grotesque)
 $font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-medium: 500;
@@ -64,10 +70,10 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 
-// Line Heights
-$line-height-tight: 1.2;
-$line-height-normal: 1.5;
-$line-height-relaxed: 1.75;
+// Line Heights (from Figma)
+$line-height-tight: 1.0;       // 100% for large headings
+$line-height-normal: 1.2;      // 120% for body text
+$line-height-relaxed: 1.375;   // 137.5% for paragraphs (22px/16px)
 
 // Letter Spacing
 $letter-spacing-tight: -0.02em;
@@ -75,7 +81,7 @@ $letter-spacing-normal: 0;
 $letter-spacing-wide: 0.05em;
 
 // ========================================
-// SPACING (8px grid - PX-BASED)
+// SPACING (Based on Figma specs)
 // ========================================
 
 $spacing-xs: 8px;
@@ -84,12 +90,15 @@ $spacing-md: 24px;
 $spacing-lg: 32px;
 $spacing-xl: 48px;
 $spacing-2xl: 64px;
-$spacing-3xl: 96px;
-$spacing-4xl: 128px;
+$spacing-3xl: 88px;            // Gap between sections
+$spacing-4xl: 144px;           // Vertical section padding
+$spacing-5xl: 160px;           // Gap between main content columns (project pages)
 
-// Container
-$container-padding-x: 100px;
-$container-max-width: 1920px;
+// Container (from Figma: 1440px with 120px padding)
+$container-padding-x: 120px;
+$container-padding-x-left: 72px;  // Asymmetric left padding for project pages
+$container-padding-x-mobile: 24px;
+$container-max-width: 1440px;
 
 // ========================================
 // BREAKPOINTS
@@ -106,25 +115,27 @@ $breakpoint-2xl: 1920px;        // Desktop large
 // EFFECTS
 // ========================================
 
-// Border Radius
-$radius-sm: 4px;
+// Border Radius (from Figma)
+$radius-sm: 4px;               // Testimonial cards
 $radius-md: 8px;
-$radius-lg: 12px;
+$radius-lg: 20px;              // Project thumbnails
 $radius-xl: 16px;
-$radius-full: 9999px;           // For circular elements
+$radius-full: 100px;           // Buttons (rounded pills)
 
 // Transitions
 $transition-fast: 75ms ease;
-$transition-base: 100ms ease;
-$transition-slow: 125ms ease;
-$transition-slower: 200ms ease;
+$transition-base: 150ms ease;
+$transition-slow: 200ms ease;
+$transition-slower: 300ms ease;
 
-// Shadows
+// Shadows (from Figma)
 $shadow-sm: 0 2px 4px $shadow-light;
 $shadow-md: 0 4px 8px $shadow-medium;
 $shadow-lg: 0 8px 16px $shadow-dark;
 $shadow-polaroid: 0 4px 8px $shadow-medium;
-$shadow-card: 0 4px 12px rgba(0, 0, 0, 0.1);
+$shadow-card: 0 4px 8px rgba(0, 0, 0, 0.16);
+$shadow-button: 2px 4px 0px $text-primary;  // Button drop shadow
+$shadow-button-dark: 2px 4px 0px $text-dark;
 
 // Z-index layers
 $z-base: 1;
@@ -163,17 +174,17 @@ $z-tooltip: 700;
   max-width: $container-max-width;
   margin-left: auto;
   margin-right: auto;
-  padding-left: $spacing-md;
-  padding-right: $spacing-md;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
 
-  @include breakpoint(md) {
+  @media (max-width: #{$breakpoint-xl - 1px}) {
     padding-left: $spacing-xl;
     padding-right: $spacing-xl;
   }
 
-  @include breakpoint(xl) {
-    padding-left: $spacing-2xl;
-    padding-right: $spacing-2xl;
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
   }
 }
 
@@ -207,21 +218,34 @@ $z-tooltip: 700;
   outline: none;
 }
 
-// Outlined button (from mockup)
+// Outlined button with shadow (from Figma)
 @mixin button-outlined($color: $outline-white, $hover-color: $primary-blue) {
   @include button-reset;
-  border: 2px solid $color;
-  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid $color;
+  padding: 12px 24px;
   border-radius: $radius-full;
   color: $color;
+  font-family: $font-primary;
   font-weight: $font-weight-medium;
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  background: rgba(0, 0, 0, 0.01);
+  box-shadow: $shadow-button;
   transition: all $transition-base;
   cursor: pointer;
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: $hover-color;
     color: $hover-color;
     transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 }
 
@@ -254,4 +278,26 @@ $z-tooltip: 700;
 // Text shadow for better readability
 @mixin text-shadow {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+// ========================================
+// RESPONSIVE MIXINS
+// ========================================
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-md - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$breakpoint-lg}) {
+    @content;
+  }
 }

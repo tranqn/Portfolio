@@ -132,3 +132,28 @@
   color: $text-primary;
   text-align: center;
 }
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .skills__container {
+    flex-direction: column;
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+    gap: $spacing-2xl;
+  }
+
+  .skills__title {
+    font-size: $font-size-3xl-mobile;
+  }
+
+  .skills__icons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .skills__badge__container {
+    align-self: center;
+  }
+}

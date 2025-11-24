@@ -63,12 +63,27 @@
   flex-shrink: 1;
 }
 
+.projects__card-image-link {
+  display: block;
+  cursor: pointer;
+  transition: transform $transition-base;
+
+  &:hover {
+    transform: translateY(-4px);
+  }
+}
+
 .projects__card-image {
   width: 100%;
   height: auto;
   border-radius: $radius-lg;
   object-fit: cover;
   box-shadow: $shadow-card;
+  transition: box-shadow $transition-base;
+
+  .projects__card-image-link:hover & {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.24);
+  }
 }
 
 .projects__card-content {
@@ -137,5 +152,32 @@
       color: $text-primary;
       transform: translateY(-2px);
     }
+  }
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .projects__container {
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+    gap: $spacing-2xl;
+    flex-direction: column;
+  }
+
+  .projects__header,
+  .projects__card {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+
+  .projects__title {
+    font-size: $font-size-3xl-mobile;
+  }
+
+  .projects__card-title {
+    font-size: $font-size-2xl-mobile;
   }
 }

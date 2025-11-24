@@ -67,3 +67,28 @@
     color: $primary-blue;
   }
 }
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .footer__container {
+    flex-direction: column;
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+    gap: $spacing-lg;
+    align-items: center;
+  }
+
+  .footer__container__top,
+  .footer__container__bottom {
+    width: 100%;
+  }
+
+  .footer__links {
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+  }
+}

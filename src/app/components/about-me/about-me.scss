@@ -13,7 +13,7 @@
 
 .about-me__container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: $spacing-3xl;
   max-width: $container-max-width;
@@ -26,47 +26,66 @@
 .about-me__stickers {
   display: flex;
   flex-direction: column;
-  gap: $spacing-md;
+  gap: $spacing-sm;
   flex-shrink: 0;
 }
 
 .about-me__sticker {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
-  padding: $spacing-md $spacing-lg;
-  border-radius: $radius-md;
+  justify-content: center;
   transform: rotate(-2deg);
   transition: transform $transition-base;
-  min-width: 280px;
+  width: 100%;
 
   &:hover {
     transform: rotate(0deg) scale(1.02);
   }
 
   &--yellow {
-    background-color: $sticker-yellow;
+    transform: rotate(-5deg);
   }
 
   &--blue {
-    background-color: $sticker-blue;
+    transform: rotate(2deg);
   }
 
   &--orange {
-    background-color: $sticker-orange;
+    transform: rotate(5deg);
   }
 }
 
+.about-me__sticker-bg {
+  width: 550px;
+  height: auto;
+  display: block;
+}
+
+.about-me__sticker-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-xs;
+  width: 100%;
+  height: 100%;
+  padding: $spacing-md;
+}
+
 .about-me__sticker-icon {
-  width: 32px;
-  height: 32px;
   object-fit: contain;
 }
 
 .about-me__sticker-text {
-  font-size: $font-size-base;
+  font-size: $font-size-xl;
   font-weight: $font-weight-semibold;
-  color: $text-dark;
+  color: $text-primary;
+  text-align: center;
+  line-height: $line-height-normal;
 }
 
 // Content (Right Side)
@@ -111,4 +130,25 @@
   align-self: flex-start;
   margin-top: $spacing-sm;
   padding: 12px 24px;
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .about-me__container {
+    flex-direction: column;
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+    gap: $spacing-2xl;
+  }
+
+  .about-me__title {
+    font-size: $font-size-3xl-mobile;
+  }
+
+  .about-me__sticker {
+    min-width: 100%;
+  }
 }

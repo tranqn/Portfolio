@@ -1,28 +1,28 @@
 <header class="header">
-  <div class="header__container">
+  <nav class="header__container">
     <a href="#home" class="header__logo">
       <img src="logo/logo.svg" alt="QT Logo" class="header__logo-image">
     </a>
 
-    <nav class="header__nav">
-      <ul class="header__nav-list">
-        <li class="header__nav-item">
-          <a href="#about" class="header__nav-link">About me</a>
-        </li>
-        <li class="header__nav-item">
-          <a href="#skills" class="header__nav-link">Skills</a>
-        </li>
-        <li class="header__nav-item">
-          <a href="#projects" class="header__nav-link">Projects</a>
-        </li>
-        <li class="header__nav-item">
-          <a href="#contact" class="header__nav-link">Contact</a>
-        </li>
-      </ul>
-    </nav>
+    <a href="#about" class="header__nav-link">{{ 'HEADER.ABOUT' | translate }}</a>
+    <a href="#skills" class="header__nav-link">{{ 'HEADER.SKILLS' | translate }}</a>
+    <a href="#projects" class="header__nav-link">{{ 'HEADER.PROJECTS' | translate }}</a>
+    <a href="#contact" class="header__nav-link">{{ 'HEADER.CONTACT' | translate }}</a>
 
-    <div>
-      <span>EN</span><button>-</button><span>DE</span>
+    <div class="header__lang">
+      <span
+        class="header__lang-option"
+        [class.header__lang-option--active]="currentLang === 'en'"
+        (click)="switchLanguage('en')">
+        EN
+      </span>
+      <span class="header__lang-divider">|</span>
+      <span
+        class="header__lang-option"
+        [class.header__lang-option--active]="currentLang === 'de'"
+        (click)="switchLanguage('de')">
+        DE
+      </span>
     </div>
-  </div>
+  </nav>
 </header>

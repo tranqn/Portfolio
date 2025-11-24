@@ -1,0 +1,93 @@
+<app-header></app-header>
+
+<main class="project-pollo-loco">
+  <div class="project-pollo-loco__container">
+    <!-- Breadcrumb Navigation -->
+    <nav class="project-pollo-loco__breadcrumb">
+      <a routerLink="/" fragment="project-pollo-loco" class="project-pollo-loco__back-link">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Go Back
+      </a>
+    </nav>
+
+    <!-- Main Content Grid -->
+    <div class="project-pollo-loco__content">
+      <!-- Left Column: Project Details -->
+      <div class="project-pollo-loco__details">
+        <h1 class="project-pollo-loco__title">
+          {{ projectTitle }}
+          <span class="project-pollo-loco__title-underline"></span>
+        </h1>
+
+        <section class="project-pollo-loco__section">
+          <h2 class="project-pollo-loco__section-title">Description</h2>
+          <p class="project-pollo-loco__text">
+            Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.
+          </p>
+        </section>
+
+        <section class="project-pollo-loco__section">
+          <h2 class="project-pollo-loco__section-title">Implementation Details</h2>
+          <p class="project-pollo-loco__text">
+            Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.
+          </p>
+        </section>
+
+        <div class="project-pollo-loco__duration">
+          <strong>Duration:</strong> 3 weeks
+        </div>
+
+        <div class="project-pollo-loco__tech-stack">
+          @for (tech of techStack; track tech.name) {
+            <div class="project-pollo-loco__tech-item">
+              <img [src]="tech.icon" [alt]="tech.name" class="project-pollo-loco__tech-icon" />
+              <span class="project-pollo-loco__tech-name">{{ tech.name }}</span>
+            </div>
+          }
+        </div>
+      </div>
+
+      <!-- Right Column: Project Preview -->
+      <div class="project-pollo-loco__preview">
+        <div class="project-pollo-loco__image-wrapper">
+          <img
+            src="/img/projects/pollo_loco.svg"
+            alt="El Pollo Loco Project Screenshot"
+            class="project-pollo-loco__image"
+          />
+          <img
+            src="/img/shared/featured.svg"
+            alt="Featured Project"
+            class="project-pollo-loco__sticker"
+          />
+        </div>
+
+        <div class="project-pollo-loco__actions">
+          <a
+            href="https://github.com/yourusername/el-pollo-loco"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-pollo-loco__button">
+            GitHub
+          </a>
+          <a
+            href="https://el-pollo-loco.example.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="project-pollo-loco__button project-pollo-loco__button--primary">
+            Live Test
+          </a>
+        </div>
+
+        <a routerLink="/projects/dabubble" class="project-pollo-loco__next">
+          Next Project
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</main>

@@ -8,8 +8,27 @@
 @use 'styles/reset';
 @use 'styles/utilities';
 
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Permanent+Marker&display=swap');
+// Import fonts from local files
+@font-face {
+  font-family: 'Bricolage Grotesque';
+  src: url('/fonts/Bricolage_Grotesque/BricolageGrotesque-VariableFont_opsz,wdth,wght.ttf') format('truetype');
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kalam';
+  src: url('/fonts/Kalam/Kalam-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kalam';
+  src: url('/fonts/Kalam/Kalam-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
 
 // ========================================
 // GLOBAL CUSTOM STYLES

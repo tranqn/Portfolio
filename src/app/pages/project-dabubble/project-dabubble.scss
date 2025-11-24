@@ -1,0 +1,332 @@
+@use '../../../styles/variables' as *;
+
+// ========================================
+// PROJECT DABUBBLE PAGE
+// ========================================
+
+// Override header for this page - gradient overlay and mix-blend-mode
+:host ::ng-deep .header {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+
+  .header__nav-link {
+    mix-blend-mode: difference;
+  }
+
+  .header__nav-link:nth-of-type(-n+3) {
+    color: $text-dark;
+
+    &:hover {
+      color: $primary-blue;
+    }
+  }
+
+  .header__lang-option,
+  .header__lang-divider {
+    mix-blend-mode: difference;
+  }
+}
+
+.project-dabubble {
+  min-height: 100vh;
+  background: url('/img/project_pages/Note book paper.png') left center / auto 100% no-repeat, $dark-bg;
+  background-attachment: scroll;
+
+  &__container {
+    width: 100%;
+    max-width: $container-max-width;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: $container-padding-x-left;
+    padding-right: $container-padding-x;
+    padding-top: 120px;
+    padding-bottom: $spacing-4xl;
+
+    @media (max-width: #{$breakpoint-md - 1px}) {
+      padding-left: $container-padding-x-mobile;
+      padding-right: $container-padding-x-mobile;
+    }
+  }
+
+  // Breadcrumb Navigation
+  &__breadcrumb {
+    margin-bottom: $spacing-3xl;
+  }
+
+  &__back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-xs;
+    color: $text-dark;
+    font-size: $font-size-base;
+    font-weight: $font-weight-medium;
+    text-decoration: none;
+    transition: color $transition-base;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      color: $primary-blue;
+    }
+  }
+
+  // Main Content Grid
+  &__content {
+    display: flex;
+    gap: $spacing-5xl;
+    align-items: flex-end;
+    justify-content: space-between;
+    isolation: isolate;
+
+    @include mobile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  // Left Column: Project Details
+  &__details {
+    flex: 1;
+    min-width: 0;
+    max-width: 600px;
+    padding: $spacing-3xl;
+    background-image: url('/Design material/notebook_paper.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: $radius-lg;
+    position: relative;
+
+    @include mobile {
+      max-width: 100%;
+      padding: $spacing-md;
+    }
+  }
+
+  &__title {
+    font-size: $font-size-4xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $text-dark;
+    margin-bottom: $spacing-lg;
+    position: relative;
+    display: inline-block;
+    mix-blend-mode: normal;
+
+    @include mobile {
+      font-size: $font-size-2xl;
+    }
+  }
+
+  &__title-underline {
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: $primary-blue;
+    border-radius: 2px;
+  }
+
+  &__section {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__section-title {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-tight;
+    color: $text-dark;
+    margin-bottom: $spacing-sm;
+    mix-blend-mode: normal;
+  }
+
+  &__text {
+    font-size: $font-size-md;
+    line-height: 22px;
+    text-align: justify;
+    color: $text-dark;
+  }
+
+  &__duration {
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    line-height: 22px;
+    text-align: justify;
+    color: $text-dark;
+    margin-bottom: $spacing-lg;
+  }
+
+  // Tech Stack
+  &__tech-stack {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 8px;
+    width: 480px;
+    margin-top: $spacing-lg;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__tech-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;
+    height: 24px;
+  }
+
+  &__tech-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+  }
+
+  &__tech-name {
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: $font-weight-normal;
+    font-size: 16px;
+    line-height: $line-height-normal;
+    color: $text-dark;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+  }
+
+  // Right Column: Project Preview
+  &__preview {
+    flex: 1;
+    min-width: 0;
+    max-width: 650px;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    @include mobile {
+      max-width: 100%;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    border-radius: $radius-lg;
+    box-shadow: $shadow-lg;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: $radius-lg;
+  }
+
+  &__sticker {
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    width: 90px;
+    height: auto;
+    display: block;
+    z-index: 10;
+
+    @include mobile {
+      width: 60px;
+      top: 50%;
+      right: -15px;
+      transform: translateY(-50%);
+    }
+  }
+
+  // Action Buttons
+  &__actions {
+    display: flex;
+    justify-content: end;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    gap: 10px;
+    border: 1px solid $outline-white;
+    border-radius: 100px;
+    background: rgba(0, 0, 0, 0.01);
+    box-shadow: 2px 4px 0px $text-primary;
+    color: $text-primary;
+    font-family: $font-primary;
+    font-style: normal;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-md;
+    line-height: $line-height-normal;
+    text-align: justify;
+    text-decoration: none;
+    transition: all $transition-base;
+    cursor: pointer;
+    flex: none;
+    flex-grow: 0;
+    mix-blend-mode: exclusion;
+
+    &:hover {
+      border-color: $primary-blue;
+      background-color: $primary-blue;
+      color: $text-primary;
+      transform: translateY(-2px);
+    }
+
+    &--primary {
+      border-color: $outline-white;
+      background: rgba(0, 0, 0, 0.01);
+      color: $text-primary;
+
+      &:hover {
+        background-color: $primary-blue;
+        border-color: $primary-blue;
+        color: $text-primary;
+      }
+    }
+  }
+
+  // Next Project Link
+  &__next {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    color: $text-primary;
+    font-size: $font-size-md;
+    font-weight: $font-weight-bold;
+    line-height: $line-height-normal;
+    text-align: justify;
+    text-decoration: none;
+    mix-blend-mode: normal;
+    transition: color $transition-base;
+    margin-top: $spacing-md;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    &:hover {
+      color: $primary-blue;
+    }
+  }
+}

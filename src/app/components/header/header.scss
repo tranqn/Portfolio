@@ -73,3 +73,65 @@
     color: $primary-blue;
   }
 }
+
+// Language Switcher
+.header__lang {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.header__lang-option {
+  color: $text-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  cursor: pointer;
+  transition: color $transition-base;
+  opacity: 0.6;
+
+  &:hover {
+    color: $primary-blue;
+    opacity: 1;
+  }
+
+  &--active {
+    color: $primary-blue;
+    opacity: 1;
+  }
+}
+
+.header__lang-divider {
+  color: $text-primary;
+  font-size: $font-size-base;
+  opacity: 0.4;
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .header__container {
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+    gap: $spacing-sm;
+  }
+
+  .header__logo-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .header__nav-link {
+    font-size: $font-size-sm;
+  }
+
+  .header__lang {
+    gap: 4px;
+  }
+
+  .header__lang-option,
+  .header__lang-divider {
+    font-size: $font-size-sm;
+  }
+}
