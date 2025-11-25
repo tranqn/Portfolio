@@ -27,6 +27,7 @@
 
 // Header (Left Side)
 .skills__header {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
@@ -42,11 +43,18 @@
 }
 
 .skills__title {
+  position: relative;
   font-size: $font-size-4xl;
   font-weight: $font-weight-black;
   color: $text-primary;
   margin: 0;
-  text-transform: lowercase;
+  padding: $spacing-lg $spacing-xl;
+  background-image: url('/img/skills/Color option 1.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: fit-content;
+  min-width: 250px;
 }
 
 // Content (Right Side)
@@ -65,12 +73,18 @@
 }
 
 .skills__text {
+  position: relative;
   font-size: $font-size-base;
   font-weight: $font-weight-normal;
   line-height: $line-height-relaxed;
   color: $text-primary;
   margin: 0;
   max-width: 600px;
+  padding: $spacing-xl $spacing-lg;
+  background-image: url('/img/skills/1.Skills description.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .skills__badge__container {

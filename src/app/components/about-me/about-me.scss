@@ -14,7 +14,7 @@
 .about-me__container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   gap: $spacing-3xl;
   max-width: $container-max-width;
   margin: 0 auto;
@@ -24,35 +24,43 @@
 
 // Stickers (Left Side)
 .about-me__stickers {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
+  position: relative;
   flex-shrink: 0;
+  min-height: 500px;
+  width: 500px;
 }
 
 .about-me__sticker {
-  position: relative;
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(-2deg);
   transition: transform $transition-base;
-  width: 100%;
 
   &:hover {
     transform: rotate(0deg) scale(1.02);
+    z-index: 10;
   }
 
   &--yellow {
-    transform: rotate(-5deg);
+    top: 0;
+    left: 0;
+    transform: rotate(-3deg);
+    z-index: 3;
   }
 
   &--blue {
+    top: 100px;
+    left: 20px;
     transform: rotate(2deg);
+    z-index: 2;
   }
 
   &--orange {
+    top: 200px;
+    left: 20px;
     transform: rotate(5deg);
+    z-index: 1;
   }
 }
 
@@ -99,7 +107,7 @@
 .about-me__label {
   font-size: $font-size-sm;
   font-weight: $font-weight-semibold;
-  color: $text-dark;
+  color: $text-muted;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-wide;
 }
@@ -109,6 +117,14 @@
   font-weight: $font-weight-black;
   color: $text-dark;
   margin: 0;
+}
+
+.about-me__underline {
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-md;
+  width: 300px;
+  height: auto;
+  display: block;
 }
 
 .about-me__text {
@@ -126,10 +142,35 @@
 }
 
 .about-me__button {
-  @include button-outlined($text-dark, $primary-blue);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 10px;
+  border: 1px solid $text-dark;
+  border-radius: 100px;
+  background: rgba(0, 0, 0, 0.01);
+  box-shadow: 2px 4px 0px $text-dark;
+  color: $text-dark;
+  font-family: $font-primary;
+  font-style: normal;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  text-decoration: none;
+  transition: all $transition-base;
+  cursor: pointer;
   align-self: flex-start;
   margin-top: $spacing-sm;
-  padding: 12px 24px;
+
+  &:hover {
+    border-color: $primary-blue;
+    background-color: $primary-blue;
+    color: $text-primary;
+    transform: translateY(-2px);
+  }
 }
 
 // ========================================
