@@ -132,6 +132,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;  // For absolute positioning of icon
+
+  // Animate icon on container hover
+  &:hover .hero__button-icon {
+    transform: translateX(0) rotate(360deg);  // Move right and rotate
+    opacity: 1;  // Fade in to fully visible
+  }
+}
+
+// Button icon (waving hand) - positioned relative to container
+.hero__button-icon {
+  position: absolute;
+  top: -42px;  // At the top edge of container
+  right: 0px;  // Initial position from right edge
+  width: 40px;
+  height: 40px;
+  z-index: 4;  // Above button elements
+  opacity: 0;  // Initially invisible
+  transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 400ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;  // Don't block button hover
+  transform-origin: center;  // Rotate from center
 }
 
 // Individual letter hover effects
@@ -202,10 +224,10 @@
   line-height: $line-height-normal;
   background: transparent;
   width: 140px;
-  transition: border-color 800ms cubic-bezier(0.4, 0, 0.2, 1),
+  transition: border-color 400ms cubic-bezier(0.4, 0, 0.2, 1),
               color 100ms ease,
-              padding 800ms cubic-bezier(0.4, 0, 0.2, 1),
-              width 800ms cubic-bezier(0.4, 0, 0.2, 1),
+              padding 400ms cubic-bezier(0.4, 0, 0.2, 1),
+              width 400ms cubic-bezier(0.4, 0, 0.2, 1),
               transform 100ms ease;
   cursor: pointer;
   text-decoration: none;
@@ -241,9 +263,10 @@
     z-index: 2;
   }
 
+
   // Hover text overlay
   &::before {
-    content: "I'AM QUOC NAM TRAN";
+    content: "I'M QUOC NAM TRAN";
     position: absolute;
     color: $text-primary;
     opacity: 0;
@@ -274,6 +297,43 @@
   // Show new text on hover
   &:hover::before {
     opacity: 1;
+  }
+}
+
+// Get in Touch button (CTA) - standard button with orange hover
+.hero__cta-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__cta-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  gap: 10px;
+  border: 1px solid $outline-white;
+  border-radius: 100px;
+  background: rgba(0, 0, 0, 0.01);
+  box-shadow: $shadow-button;  // 2px 4px 0px white
+  color: $text-primary;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  text-decoration: none;
+  transition: all $transition-base;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid $outline-white;
+    background-color: $coral-orange;
+    color: $text-primary;
+    transform: translate(2px, 4px);
+    box-shadow: none;
   }
 }
 

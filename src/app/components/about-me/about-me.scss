@@ -119,12 +119,39 @@
   margin: 0;
 }
 
+// Keyframe animation for underline clip-path
+@keyframes underlineReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);  // Hidden - clipped from right
+  }
+  7.14% {
+    clip-path: inset(0 0 0 0);  // Fully visible - revealed left to right (0.5s of 7s)
+  }
+  50% {
+    clip-path: inset(0 0 0 0);  // Stay visible for 3 seconds (7.14% to 50% = 42.86% of 7s ≈ 3s)
+  }
+  57.14% {
+    clip-path: inset(0 100% 0 0);  // Hidden - wiped right to left (0.5s of 7s)
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);  // Stay hidden for 3 seconds delay (57.14% to 100% = 42.86% of 7s ≈ 3s)
+  }
+}
+
 .about-me__underline {
   margin-top: -$spacing-sm;
   margin-bottom: $spacing-md;
   width: 300px;
   height: auto;
   display: block;
+  clip-path: inset(0 100% 0 0);
+  animation: underlineReveal 7s ease-in-out infinite;
+  // 7s total: 0.5s reveal + 3s visible + 0.5s wipe + 3s delay
+  // Math breakdown:
+  // - 0% → 7.14%: 0.5s / 7s = 0.0714 = 7.14% (reveal animation)
+  // - 7.14% → 50%: 3s / 7s = 0.4286 = 42.86% duration (visible state)
+  // - 50% → 57.14%: 0.5s / 7s = 0.0714 = 7.14% (wipe animation)
+  // - 57.14% → 100%: 3s / 7s = 0.4286 = 42.86% duration (hidden delay)
 }
 
 .about-me__text {
@@ -166,10 +193,11 @@
   margin-top: $spacing-sm;
 
   &:hover {
-    border-color: $primary-blue;
-    background-color: $primary-blue;
+    border: 1px solid $text-dark;
+    background-color: $coral-orange;
     color: $text-primary;
-    transform: translateY(-2px);
+    transform: translate(2px, 4px);
+    box-shadow: none;
   }
 }
 
