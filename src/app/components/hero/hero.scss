@@ -100,7 +100,6 @@
   line-height: $line-height-tight;
   letter-spacing: $letter-spacing-tight;
   color: $text-primary;
-  text-transform: uppercase;
 }
 
 .hero__title--top {
@@ -109,6 +108,53 @@
 
 .hero__title--bottom {
   text-align: center;
+}
+
+// Letters container - isolates letters to prevent layout shift
+.hero__letters-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-height: 150px;
+
+  &--top {
+    width: 600px;
+  }
+
+  &--bottom {
+    width: 750px;
+  }
+}
+
+// Button container - fixed size
+.hero__button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Individual letter hover effects
+.hero__letter {
+  display: inline-block;
+  padding: 0 0.05em;
+  margin: 0 -0.03em;
+  transition: opacity ease, transform 200ms ease;
+  cursor: default;
+
+  &:hover {
+    color: rgb(247, 197, 24); // Yellow
+
+    // If originally uppercase, make lowercase on hover
+    &[data-uppercase="true"] {
+      text-transform: lowercase;
+    }
+
+    // If originally lowercase, make uppercase on hover
+    &[data-uppercase="false"] {
+      text-transform: uppercase;
+    }
+  }
 }
 
 // Polaroid
@@ -142,9 +188,93 @@
 
 // CTA Button
 .hero__button {
-  @include button-outlined($outline-white, $primary-blue);
-  font-size: $font-size-md;
+  @include button-reset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: left;
+  border: 1px solid $outline-white;
   padding: 12px 20px;
+  border-radius: $radius-full;
+  color: $outline-white;
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  background: transparent;
+  width: 140px;
+  transition: border-color 800ms cubic-bezier(0.4, 0, 0.2, 1),
+              color 100ms ease,
+              padding 800ms cubic-bezier(0.4, 0, 0.2, 1),
+              width 800ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 100ms ease;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+
+  // Circular blue background expanding from bottom center
+  &::after {
+    content: '';
+    position: absolute;
+    width: 300px;  // Circle diameter
+    height: 300px;  // Circle diameter
+    background-color: $primary-blue;
+    border-radius: 50%;  // Makes square into circle
+    bottom: 0;  // Position at bottom edge of button
+    left: 50%;  // Position at horizontal center
+    // Initial state: scale(0.5) = 50% size, translate positions circle
+    transform: translate(-50%, 50%) scale(0.1);
+    // translate(-50%, 50%): -50% X centers horizontally, +50% Y positions circle center at bottom edge
+    // scale(0.5): Circle starts at 50% of 500px = 250px diameter
+    transform-origin: center bottom;  // Scale grows from bottom center point
+    opacity: 0;  // Invisible initially
+    // UNHOVER transitions (when mouse leaves):
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,  // Shrink: 500ms duration, smooth curve, 0ms delay
+                opacity 500ms cubic-bezier(0.2, 0, 0.8, 1) 0ms;  // Fade: 500ms, slow start (100%→80%), fast end (80%→0%)
+    z-index: 1;
+  }
+
+  // Original button text
+  .hero__button-text {
+    position: relative;
+    z-index: 2;
+  }
+
+  // Hover text overlay
+  &::before {
+    content: "I'AM QUOC NAM TRAN";
+    position: absolute;
+    color: $text-primary;
+    opacity: 0;
+    transition: opacity 400ms ease-in-out;
+    white-space: nowrap;
+    z-index: 3;
+  }
+
+  // Hide original text on hover
+  &:hover {
+    border: 1px solid $outline-white;
+    color: transparent;
+    width: 220px;
+  }
+
+  // Expand circle on hover
+  &:hover::after {
+    // Hover state: scale(1) = 100% size = full 500px diameter
+    transform: translate(-50%, 50%) scale(1);
+    // translate stays same, only scale changes: 0.5 → 1.0 (50% → 100%)
+    opacity: 1;  // Fully visible
+    // HOVER transitions (when mouse enters):
+    transition: transform 500ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,  // Grow: 500ms duration, smooth curve, 0ms delay
+                opacity 500ms cubic-bezier(0.8, 0, 0.2, 1) 0ms;  // Fade: 500ms, fast start (0→80%), slow end (80%→100%)
+    // cubic-bezier(0.8, 0, 0.2, 1): fast acceleration at start, gentle deceleration at end
+  }
+
+  // Show new text on hover
+  &:hover::before {
+    opacity: 1;
+  }
 }
 
 // ========================================

@@ -17,8 +17,18 @@
     <div class="hero__content">
       <div class="hero__content-top">
         <div class="hero__content-left">
-          <button class="hero__button">{{ 'HERO.HELLO' | translate }}</button>
-          <h1 class="hero__title hero__title--top">{{ 'HERO.FRONTEND' | translate }}</h1>
+          <div class="hero__button-container">
+            <button class="hero__button">
+              <span class="hero__button-text">{{ 'HERO.HELLO' | translate }}</span>
+            </button>
+          </div>
+          <div class="hero__letters-container hero__letters-container--top">
+            <h1 class="hero__title hero__title--top">
+              @for (letter of frontendLetters; track $index) {
+                <span class="hero__letter" [attr.data-uppercase]="letter.isUpperCase">{{ letter.char }}</span>
+              }
+            </h1>
+          </div>
         </div>
         <div class="hero__content-right">
           <img src="/img/hero/Polaroid Frame.png" alt="Nam :)" class="hero__polaroid">
@@ -26,8 +36,16 @@
       </div>
 
       <div class="hero__content-bottom">
-        <h1 class="hero__title hero__title--bottom">{{ 'HERO.DEVELOPER' | translate }}</h1>
-        <a href="#contact" class="hero__button">{{ 'HERO.GET_IN_TOUCH' | translate }}</a>
+        <div class="hero__letters-container hero__letters-container--bottom">
+          <h1 class="hero__title hero__title--bottom">
+            @for (letter of developerLetters; track $index) {
+              <span class="hero__letter" [attr.data-uppercase]="letter.isUpperCase">{{ letter.char }}</span>
+            }
+          </h1>
+        </div>
+        <div class="hero__button-container">
+          <a href="#contact" class="hero__button">{{ 'HERO.GET_IN_TOUCH' | translate }}</a>
+        </div>
       </div>
     </div>
   </div>
