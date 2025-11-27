@@ -11,12 +11,14 @@
 
     <!-- Project 1: Join -->
     <div id="project-join" class="projects__card">
-      <a routerLink="/projects/join" class="projects__card-image-link">
+      <div class="projects__card-image-wrapper">
         <img src="/img/projects/join.svg" alt="Join Project" class="projects__card-image">
-      </a>
+        <a routerLink="/projects/join" class="projects__card-hover-link">
+          <button class="projects__card-hover-button">{{ 'PROJECTS.PROJECT_DETAILS' | translate }}</button>
+        </a>
+      </div>
       <div class="projects__card-content">
         <h3 class="projects__card-title">{{ 'PROJECTS.JOIN.TITLE' | translate }}</h3>
-        <p class="projects__card-tech">{{ 'PROJECTS.JOIN.TECH' | translate }}</p>
         <p class="projects__card-description">
           {{ 'PROJECTS.JOIN.DESCRIPTION' | translate }}
         </p>
@@ -29,12 +31,14 @@
 
     <!-- Project 2: El Pollo Loco -->
     <div id="project-pollo-loco" class="projects__card">
-      <a routerLink="/projects/pollo-loco" class="projects__card-image-link">
+      <div class="projects__card-image-wrapper">
         <img src="/img/projects/pollo_loco.svg" alt="El Pollo Loco Project" class="projects__card-image">
-      </a>
+        <a routerLink="/projects/pollo-loco" class="projects__card-hover-link">
+          <button class="projects__card-hover-button">{{ 'PROJECTS.PROJECT_DETAILS' | translate }}</button>
+        </a>
+      </div>
       <div class="projects__card-content">
         <h3 class="projects__card-title">{{ 'PROJECTS.POLLO.TITLE' | translate }}</h3>
-        <p class="projects__card-tech">{{ 'PROJECTS.POLLO.TECH' | translate }}</p>
         <p class="projects__card-description">
           {{ 'PROJECTS.POLLO.DESCRIPTION' | translate }}
         </p>
@@ -47,12 +51,14 @@
 
     <!-- Project 3: DABubble -->
     <div id="project-dabubble" class="projects__card">
-      <a routerLink="/projects/dabubble" class="projects__card-image-link">
+      <div class="projects__card-image-wrapper">
         <img src="/img/projects/bubble.svg" alt="DABubble Project" class="projects__card-image">
-      </a>
+        <a routerLink="/projects/dabubble" class="projects__card-hover-link">
+          <button class="projects__card-hover-button">{{ 'PROJECTS.PROJECT_DETAILS' | translate }}</button>
+        </a>
+      </div>
       <div class="projects__card-content">
         <h3 class="projects__card-title">{{ 'PROJECTS.BUBBLE.TITLE' | translate }}</h3>
-        <p class="projects__card-tech">{{ 'PROJECTS.BUBBLE.TECH' | translate }}</p>
         <p class="projects__card-description">
           {{ 'PROJECTS.BUBBLE.DESCRIPTION' | translate }}
         </p>

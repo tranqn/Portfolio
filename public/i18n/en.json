@@ -25,12 +25,13 @@
     "LABEL": "MY STACK",
     "TITLE": "Skill set",
     "DESCRIPTION": "Technologies I've been working with recently and am focused on mastering. I continuously track best practises and technologies and incorporate your approvals for improving your business with new technology.",
-    "BADGE": "I'm for peel!"
+    "BADGE": "Also, I'm interested in diving into:"
   },
   "PROJECTS": {
     "LABEL": "MY CRAFT",
     "TITLE": "Projects",
     "DESCRIPTION": "Encourage people to take a look and interact with your projects. Select projects that made you either proud, confident, happy or which you have learned a lot working with. Showcasing real projects and the solutions you've learnt are effective code.",
+    "PROJECT_DETAILS": "Project details",
     "JOIN": {
       "TITLE": "Join",
       "TECH": "Angular | TypeScript | HTML | CSS | Firebase",

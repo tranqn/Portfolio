@@ -73,22 +73,47 @@
 // ========================================
 
 @include mobile {
+  .footer {
+    margin-top: -120px;
+    padding: $spacing-md 0 0 0;
+  }
+
   .footer__container {
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    gap: $spacing-lg;
+    gap: $spacing-md;
     align-items: center;
   }
 
-  .footer__container__top,
+  .footer__container__top {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    gap: $spacing-sm;
+  }
+
   .footer__container__bottom {
     width: 100%;
+  }
+
+  .footer__logo-image {
+    width: 35px;
+    height: 35px;
+  }
+
+  .footer__copyright {
+    font-size: $font-size-xs;
+    text-align: center;
   }
 
   .footer__links {
     flex-direction: column;
     align-items: center;
     gap: $spacing-sm;
+  }
+
+  .footer__link {
+    font-size: $font-size-xs;
   }
 }

@@ -212,19 +212,64 @@
 // ========================================
 
 @include mobile {
+  .contact {
+    padding: $spacing-2xl 0 120px 0;
+  }
+
   .contact__container {
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
+    gap: $spacing-xl;
+    align-items: center;
+  }
+
+  .contact__left {
     gap: $spacing-2xl;
+  }
+
+  .contact__content {
+    text-align: center;
+  }
+
+  .contact__label {
+    font-size: $font-size-xs;
   }
 
   .contact__title {
     font-size: $font-size-3xl-mobile;
   }
 
+  .contact__description,
+  .contact__cta {
+    font-size: $font-size-sm;
+  }
+
+  .contact__logo-image {
+    width: 120px;
+  }
+
+  .contact__form {
+    gap: $spacing-md;
+  }
+
+  .contact__input,
+  .contact__textarea {
+    font-size: $font-size-sm;
+    padding: $spacing-sm;
+  }
+
+  .contact__submit {
+    font-size: $font-size-base;
+    padding: 10px 20px;
+  }
+
   .contact__left,
   .contact__right {
     width: 100%;
+  }
+
+  .contact__right {
+    order: -1;
   }
 }

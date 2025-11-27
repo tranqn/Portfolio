@@ -105,9 +105,9 @@
 }
 
 .about-me__label {
-  font-size: $font-size-sm;
+  font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
-  color: $text-muted;
+  color: $text-dark;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-wide;
 }
@@ -174,7 +174,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 12px 24px;
+  padding: 6px 24px;
   gap: 10px;
   border: 1px solid $text-dark;
   border-radius: 100px;
@@ -206,18 +206,76 @@
 // ========================================
 
 @include mobile {
+  .about-me {
+    padding: $spacing-2xl 0;
+  }
+
   .about-me__container {
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    gap: $spacing-2xl;
+    gap: $spacing-xl;
+    align-items: center;
+  }
+
+  .about-me__stickers {
+    width: 100%;
+    min-height: 350px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-me__sticker {
+    &--yellow {
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+    }
+
+    &--blue {
+      left: 50%;
+      transform: translateX(-50%) rotate(2deg);
+    }
+
+    &--orange {
+      left: 50%;
+      transform: translateX(-50%) rotate(5deg);
+    }
+  }
+
+  .about-me__sticker-bg {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .about-me__content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .about-me__label {
+    font-size: $font-size-base;
   }
 
   .about-me__title {
     font-size: $font-size-3xl-mobile;
   }
 
-  .about-me__sticker {
-    min-width: 100%;
+  .about-me__underline {
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-me__sticker-text {
+    font-size: $font-size-md;
+  }
+
+  .about-me__button-container {
+    justify-content: center;
+  }
+
+  .about-me__button {
+    font-size: $font-size-base;
   }
 }

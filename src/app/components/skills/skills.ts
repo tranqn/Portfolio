@@ -8,5 +8,9 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './skills.scss',
 })
 export class Skills {
+  isPeeled = false;
 
+  onBadgeClick() {
+    this.isPeeled = !this.isPeeled;
+  }
 }

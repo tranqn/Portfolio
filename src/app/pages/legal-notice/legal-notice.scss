@@ -1,0 +1,113 @@
+@use '../../../styles/variables' as *;
+
+// ========================================
+// LEGAL NOTICE PAGE
+// ========================================
+
+.legal-page {
+  min-height: 100vh;
+  background-color: $light-bg;
+}
+
+.legal-header {
+  position: relative;
+  background-image: url('/img/skills/Skills BG.png');
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: $spacing-4xl 0 $spacing-6xl 0;
+}
+
+.legal-header__container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+}
+
+.legal-header__title {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-black;
+  color: $text-primary;
+  margin: 0;
+}
+
+.legal-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-4xl $container-padding-x;
+}
+
+.legal-content h2 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $primary-blue;
+  margin-top: $spacing-3xl;
+  margin-bottom: $spacing-lg;
+}
+
+.legal-content h3 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+  margin-top: $spacing-2xl;
+  margin-bottom: $spacing-md;
+}
+
+.legal-content p {
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  color: $text-dark;
+  margin-bottom: $spacing-lg;
+}
+
+.legal-content a {
+  color: $primary-blue;
+  text-decoration: underline;
+  transition: color $transition-base;
+
+  &:hover {
+    color: darken($primary-blue, 15%);
+  }
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .legal-header {
+    padding: $spacing-2xl 0 $spacing-3xl 0;
+  }
+
+  .legal-header__container {
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+  }
+
+  .legal-header__title {
+    font-size: $font-size-5xl-mobile;
+  }
+
+  .legal-content {
+    padding: $spacing-2xl $container-padding-x-mobile;
+  }
+
+  .legal-content h2 {
+    font-size: $font-size-xl;
+    margin-top: $spacing-2xl;
+    margin-bottom: $spacing-md;
+  }
+
+  .legal-content h3 {
+    font-size: $font-size-lg;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-sm;
+  }
+
+  .legal-content p {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-md;
+  }
+}

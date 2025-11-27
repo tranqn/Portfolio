@@ -14,10 +14,6 @@
 
   .header__nav-link:nth-of-type(-n+3) {
     color: $text-dark;
-
-    &:hover {
-      color: $primary-blue;
-    }
   }
 
   .header__lang-option,
@@ -28,8 +24,7 @@
 
 .project-join {
   min-height: 100vh;
-  background: url('/img/project_pages/Note book paper.png') left center / auto 100% no-repeat, $dark-bg;
-  background-attachment: scroll;
+  background-color: rgb(14 16 19);
 
   &__container {
     width: 100%;
@@ -40,6 +35,8 @@
     padding-right: $container-padding-x;
     padding-top: 120px; // Account for fixed header
     padding-bottom: $spacing-4xl;
+    background: url('/img/project_pages/Note book paper.png') left center / auto 100% no-repeat, $dark-bg;
+    background-attachment: scroll;
 
     @media (max-width: #{$breakpoint-md - 1px}) {
       padding-left: $container-padding-x-mobile;

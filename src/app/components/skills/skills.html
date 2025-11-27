@@ -3,7 +3,16 @@
     <!-- Left: Skill Set Title -->
     <div class="skills__header">
       <span class="skills__label">{{ 'SKILLS.LABEL' | translate }}</span>
-      <h2 class="skills__title">{{ 'SKILLS.TITLE' | translate }}</h2>
+      <div class="skills__title-container">
+        <div class="skills__title-bg-wrapper">
+          <img
+            src="/img/skills/Color option 1.png"
+            alt="Skills background"
+            class="skills__title-bg"
+          />
+        </div>
+        <h2 class="skills__title">{{ 'SKILLS.TITLE' | translate }}</h2>
+      </div>
     </div>
 
     <!-- Right: Description and Icons -->
@@ -14,42 +23,73 @@
         </p>
       </div>
 
-      <div class="skills__icons">
-        <div class="skills__icon">
-          <img src="/img/skills/html.svg" alt="HTML" class="skills__icon-image">
+      <div class="skills__icon-container">
+        <div class="skills__icons">
+          <div class="skills__icon">
+            <img src="/img/skills/html.svg" alt="HTML" class="skills__icon-image" />
+            <span class="skills__icon-name">HTML</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/css.svg" alt="CSS" class="skills__icon-image" />
+            <span class="skills__icon-name">CSS</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/javascript.svg" alt="JavaScript" class="skills__icon-image" />
+            <span class="skills__icon-name">JavaScript</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/typescript.svg" alt="TypeScript" class="skills__icon-image" />
+            <span class="skills__icon-name">TypeScript</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/angular.svg" alt="Angular" class="skills__icon-image" />
+            <span class="skills__icon-name">Angular</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/firebase.svg" alt="Firebase" class="skills__icon-image" />
+            <span class="skills__icon-name">Firebase</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/git.svg" alt="Git" class="skills__icon-image" />
+            <span class="skills__icon-name">Git</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/rest-api.svg" alt="REST-API" class="skills__icon-image" />
+            <span class="skills__icon-name">Rest-Api</span>
+          </div>
+          <div class="skills__icon">
+            <img src="/img/skills/scrum.svg" alt="Scrum" class="skills__icon-image" />
+            <span class="skills__icon-name">Scrum</span>
+          </div>
+          <div class="skills__icon">
+            <img
+              src="/img/skills/material-design.svg"
+              alt="Material Design"
+              class="skills__icon-image"
+            />
+            <span class="skills__icon-name">Material Design</span>
+          </div>
         </div>
-        <div class="skills__icon">
-          <img src="/img/skills/css.svg" alt="CSS" class="skills__icon-image">
+        <div class="skills__badge-container">
+          <div class="skills__badge" (click)="onBadgeClick()" [class.peeled]="isPeeled">
+            <img src="/img/skills/Final.png" alt="Badge Final" class="skills__badge-layer skills__badge-layer--final">
+              <div class="skills__badge-content">
+                <span class="skills__badge-text">{{ 'SKILLS.BADGE' | translate }}</span>
+                <div class="skills__badge-icons">
+                  <div class="skills__badge-icon">
+                    <img src="/img/skills/badge/react.svg" alt="React" class="skills__badge-icon-svg">
+                    <span class="skills__badge-icon-label">React</span>
+                  </div>
+                  <div class="skills__badge-icon">
+                    <img src="/img/skills/badge/vue.svg" alt="Vue.js" class="skills__badge-icon-svg">
+                    <span class="skills__badge-icon-label">Vue.js</span>
+                  </div>
+                </div>
+              </div>
+            <img src="/img/skills/Transition.png" alt="Badge Transition" class="skills__badge-layer skills__badge-layer--transition">
+            <img src="/img/skills/Default.png" alt="Badge Default" class="skills__badge-layer skills__badge-layer--default">
+          </div>
         </div>
-        <div class="skills__icon">
-          <img src="/img/skills/javascript.svg" alt="JavaScript" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/typescript.svg" alt="TypeScript" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/angular.svg" alt="Angular" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/firebase.svg" alt="Firebase" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/git.svg" alt="Git" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/rest-api.svg" alt="REST-API" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/scrum.svg" alt="Scrum" class="skills__icon-image">
-        </div>
-        <div class="skills__icon">
-          <img src="/img/skills/material-design.svg" alt="Material Design" class="skills__icon-image">
-        </div>
-      </div>
-    </div>
-    <div class="skills__badge__container">
-      <div class="skills__badge">
-        <span class="skills__badge-text">{{ 'SKILLS.BADGE' | translate }}</span>
       </div>
     </div>
   </div>
