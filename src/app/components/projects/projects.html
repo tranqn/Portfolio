@@ -4,69 +4,15 @@
     <div class="projects__header">
       <span class="projects__label">{{ 'PROJECTS.LABEL' | translate }}</span>
       <h2 class="projects__title">{{ 'PROJECTS.TITLE' | translate }}</h2>
+      <img src="/img/projects/Color option 1.png" alt="Decorative underline" class="projects__underline">
       <p class="projects__description">
         {{ 'PROJECTS.DESCRIPTION' | translate }}
       </p>
     </div>
 
-    <!-- Project 1: Join -->
-    <div id="project-join" class="projects__card">
-      <div class="projects__card-image-wrapper">
-        <img src="/img/projects/join.svg" alt="Join Project" class="projects__card-image">
-        <a routerLink="/projects/join" class="projects__card-hover-link">
-          <button class="projects__card-hover-button">{{ 'PROJECTS.PROJECT_DETAILS' | translate }}</button>
-        </a>
-      </div>
-      <div class="projects__card-content">
-        <h3 class="projects__card-title">{{ 'PROJECTS.JOIN.TITLE' | translate }}</h3>
-        <p class="projects__card-description">
-          {{ 'PROJECTS.JOIN.DESCRIPTION' | translate }}
-        </p>
-        <!-- <div class="projects__card-buttons">
-          <a href="#" target="_blank" class="projects__card-button projects__card-button--primary">{{ 'PROJECTS.LIVE_TEST' | translate }}</a>
-          <a href="#" target="_blank" class="projects__card-button projects__card-button--secondary">{{ 'PROJECTS.GITHUB' | translate }}</a>
-        </div> -->
-      </div>
-    </div>
-
-    <!-- Project 2: El Pollo Loco -->
-    <div id="project-pollo-loco" class="projects__card">
-      <div class="projects__card-image-wrapper">
-        <img src="/img/projects/pollo_loco.svg" alt="El Pollo Loco Project" class="projects__card-image">
-        <a routerLink="/projects/pollo-loco" class="projects__card-hover-link">
-          <button class="projects__card-hover-button">{{ 'PROJECTS.PROJECT_DETAILS' | translate }}</button>
-        </a>
-      </div>
-      <div class="projects__card-content">
-        <h3 class="projects__card-title">{{ 'PROJECTS.POLLO.TITLE' | translate }}</h3>
-        <p class="projects__card-description">
-          {{ 'PROJECTS.POLLO.DESCRIPTION' | translate }}
-        </p>
-        <!-- <div class="projects__card-buttons">
-          <a href="#" target="_blank" class="projects__card-button projects__card-button--primary">{{ 'PROJECTS.LIVE_TEST' | translate }}</a>
-          <a href="#" target="_blank" class="projects__card-button projects__card-button--secondary">{{ 'PROJECTS.GITHUB' | translate }}</a>
-        </div> -->
-      </div>
-    </div>
-
-    <!-- Project 3: DABubble -->
-    <div id="project-dabubble" class="projects__card">
-      <div class="projects__card-image-wrapper">
-        <img src="/img/projects/bubble.svg" alt="DABubble Project" class="projects__card-image">
-        <a routerLink="/projects/dabubble" class="projects__card-hover-link">
-          <button class="projects__card-hover-button">{{ 'PROJECTS.PROJECT_DETAILS' | translate }}</button>
-        </a>
-      </div>
-      <div class="projects__card-content">
-        <h3 class="projects__card-title">{{ 'PROJECTS.BUBBLE.TITLE' | translate }}</h3>
-        <p class="projects__card-description">
-          {{ 'PROJECTS.BUBBLE.DESCRIPTION' | translate }}
-        </p>
-        <!-- <div class="projects__card-buttons">
-          <a href="#" target="_blank" class="projects__card-button projects__card-button--primary">{{ 'PROJECTS.LIVE_TEST' | translate }}</a>
-          <a href="#" target="_blank" class="projects__card-button projects__card-button--secondary">{{ 'PROJECTS.GITHUB' | translate }}</a>
-        </div> -->
-      </div>
-    </div>
+    <!-- Project Cards -->
+    @for (project of projects; track project.id) {
+      <app-project-card [project]="project"></app-project-card>
+    }
   </div>
 </section>

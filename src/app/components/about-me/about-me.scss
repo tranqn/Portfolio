@@ -207,49 +207,59 @@
 
 @include mobile {
   .about-me {
-    padding: $spacing-2xl 0;
+    padding: $spacing-xl 0;
   }
 
   .about-me__container {
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    gap: $spacing-xl;
+    gap: $spacing-lg;
     align-items: center;
   }
 
   .about-me__stickers {
     width: 100%;
-    min-height: 350px;
+    min-height: 400px;
     display: flex;
     justify-content: center;
+    position: relative;
   }
 
   .about-me__sticker {
+    width: 280px;
+
     &--yellow {
       left: 50%;
+      top: 20px;
       transform: translateX(-50%) rotate(-3deg);
+      z-index: 3;
     }
 
     &--blue {
       left: 50%;
+      top: 140px;
       transform: translateX(-50%) rotate(2deg);
+      z-index: 2;
     }
 
     &--orange {
       left: 50%;
+      top: 260px;
       transform: translateX(-50%) rotate(5deg);
+      z-index: 1;
     }
   }
 
   .about-me__sticker-bg {
     width: 100%;
-    max-width: 350px;
+    max-width: 400px;
   }
 
   .about-me__content {
     max-width: 100%;
     text-align: center;
+    gap: $spacing-md;
   }
 
   .about-me__label {

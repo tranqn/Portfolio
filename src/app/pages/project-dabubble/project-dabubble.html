@@ -14,80 +14,90 @@
 
     <!-- Main Content Grid -->
     <div class="project-dabubble__content">
-      <!-- Left Column: Project Details -->
-      <div class="project-dabubble__details">
-        <h1 class="project-dabubble__title">
-          {{ projectTitle }}
-          <span class="project-dabubble__title-underline"></span>
-        </h1>
+      @if (project) {
+        <!-- Left Column: Project Details -->
+        <div class="project-dabubble__details">
+          <h1 class="project-dabubble__title">
+            {{ project.title }}
+            <span class="project-dabubble__title-underline"></span>
+          </h1>
 
-        <section class="project-dabubble__section">
-          <h2 class="project-dabubble__section-title">Description</h2>
-          <p class="project-dabubble__text">
-            This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.
-          </p>
-        </section>
+          <section class="project-dabubble__section">
+            <h2 class="project-dabubble__section-title">Description</h2>
+            <p class="project-dabubble__text">
+              {{ project.description }}
+            </p>
+          </section>
 
-        <section class="project-dabubble__section">
-          <h2 class="project-dabubble__section-title">Implementation Details</h2>
-          <p class="project-dabubble__text">
-            Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.
-          </p>
-        </section>
+          <section class="project-dabubble__section">
+            <h2 class="project-dabubble__section-title">Implementation Details</h2>
+            <p class="project-dabubble__text">
+              Short text that describes your role or the workflow for this specific project. Let a recruiter know more about your knowledge and ability to work independently or collaboratively in a structured way.
+            </p>
+          </section>
 
-        <div class="project-dabubble__duration">
-          <strong>Duration:</strong> 4 weeks
-        </div>
-
-        <div class="project-dabubble__tech-stack">
-          @for (tech of techStack; track tech.name) {
-            <div class="project-dabubble__tech-item">
-              <img [src]="tech.icon" [alt]="tech.name" class="project-dabubble__tech-icon" />
-              <span class="project-dabubble__tech-name">{{ tech.name }}</span>
+          @if (project.duration) {
+            <div class="project-dabubble__duration">
+              <strong>Duration:</strong> {{ project.duration }}
             </div>
           }
-        </div>
-      </div>
 
-      <!-- Right Column: Project Preview -->
-      <div class="project-dabubble__preview">
-        <div class="project-dabubble__image-wrapper">
-          <img
-            src="/img/projects/bubble.svg"
-            alt="DABubble Project Screenshot"
-            class="project-dabubble__image"
-          />
-          <img
-            src="/img/shared/featured.svg"
-            alt="Featured Project"
-            class="project-dabubble__sticker"
-          />
+          <div class="project-dabubble__tech-stack">
+            @for (tech of project.techStack; track tech.name) {
+              <div class="project-dabubble__tech-item">
+                <img [src]="tech.icon" [alt]="tech.name" class="project-dabubble__tech-icon" />
+                <span class="project-dabubble__tech-name">{{ tech.name }}</span>
+              </div>
+            }
+          </div>
         </div>
 
-        <div class="project-dabubble__actions">
-          <a
-            href="https://github.com/yourusername/dabubble"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-dabubble__button">
-            GitHub
+        <!-- Right Column: Project Preview -->
+        <div class="project-dabubble__preview">
+          <div class="project-dabubble__image-wrapper">
+            <img
+              [src]="project.image"
+              [alt]="project.title + ' Screenshot'"
+              class="project-dabubble__image"
+            />
+            @if (project.featured) {
+              <img
+                src="/img/shared/featured.svg"
+                alt="Featured Project"
+                class="project-dabubble__sticker"
+              />
+            }
+          </div>
+
+          <div class="project-dabubble__actions">
+            @if (project.githubUrl) {
+              <a
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-dabubble__button">
+                GitHub
+              </a>
+            }
+            @if (project.liveUrl) {
+              <a
+                [href]="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-dabubble__button project-dabubble__button--primary">
+                Live Test
+              </a>
+            }
+          </div>
+
+          <a routerLink="/projects/join" class="project-dabubble__next">
+            Next Project
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </a>
-          <a
-            href="https://dabubble.example.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-dabubble__button project-dabubble__button--primary">
-            Live Test
-          </a>
         </div>
-
-        <a routerLink="/projects/join" class="project-dabubble__next">
-          Next Project
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+      }
     </div>
   </div>
 </main>

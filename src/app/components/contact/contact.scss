@@ -11,7 +11,8 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-color: transparent;
-  padding: $spacing-4xl 0 150px 0; // Extra bottom padding to extend background for footer overlay (footer height ~200px)
+  padding: $spacing-4xl 0 240px 0; // Bottom padding for footer overlay
+  margin-bottom: 0;
 }
 
 .contact__container {
@@ -20,7 +21,9 @@
   align-items: flex-start;
   gap: $spacing-3xl;
   max-width: $container-max-width;
+  width: 100%;
   margin: 0 auto;
+  padding-top: $container-padding-x;
   padding-left: $container-padding-x;
   padding-right: $container-padding-x;
 }
@@ -30,7 +33,7 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-3xl;
-  max-width: 600px;
+  max-width: 60%;
 }
 
 // Right column: Logo
@@ -38,7 +41,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 40%;
 }
 
 // Content (Left)
@@ -71,6 +74,42 @@
   line-height: $line-height-relaxed;
   color: $text-primary;
   margin: 0;
+}
+
+// Keyframe animation for underline clip-path
+@keyframes underlineReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);  // Hidden - clipped from right
+  }
+  7.14% {
+    clip-path: inset(0 0 0 0);  // Fully visible - revealed left to right (0.5s of 7s)
+  }
+  50% {
+    clip-path: inset(0 0 0 0);  // Stay visible for 3 seconds (7.14% to 50% = 42.86% of 7s ≈ 3s)
+  }
+  57.14% {
+    clip-path: inset(0 100% 0 0);  // Hidden - wiped right to left (0.5s of 7s)
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);  // Stay hidden for 3 seconds delay (57.14% to 100% = 42.86% of 7s ≈ 3s)
+  }
+}
+
+.contact__underline {
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-md;
+  width: 300px;
+  height: auto;
+  display: block;
+  clip-path: inset(0 100% 0 0);
+  animation: underlineReveal 7s ease-in-out infinite;
+  align-self: flex-end;
+  // 7s total: 0.5s reveal + 3s visible + 0.5s wipe + 3s delay
+  // Math breakdown:
+  // - 0% → 7.14%: 0.5s / 7s = 0.0714 = 7.14% (reveal animation)
+  // - 7.14% → 50%: 3s / 7s = 0.4286 = 42.86% duration (visible state)
+  // - 50% → 57.14%: 0.5s / 7s = 0.0714 = 7.14% (wipe animation)
+  // - 57.14% → 100%: 3s / 7s = 0.4286 = 42.86% duration (hidden delay)
 }
 
 .contact__cta {
@@ -213,23 +252,23 @@
 
 @include mobile {
   .contact {
-    padding: $spacing-2xl 0 120px 0;
+    padding: $spacing-xl 0 259px 0;
   }
 
   .contact__container {
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    gap: $spacing-xl;
+    gap: $spacing-md;
     align-items: center;
   }
 
   .contact__left {
-    gap: $spacing-2xl;
+    gap: $spacing-lg;
   }
 
   .contact__content {
-    text-align: center;
+    text-align: left;
   }
 
   .contact__label {
@@ -246,7 +285,7 @@
   }
 
   .contact__logo-image {
-    width: 120px;
+    width: 100px;
   }
 
   .contact__form {
@@ -267,9 +306,5 @@
   .contact__left,
   .contact__right {
     width: 100%;
-  }
-
-  .contact__right {
-    order: -1;
   }
 }

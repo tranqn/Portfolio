@@ -25,15 +25,14 @@
   display: flex;
   flex-direction: column;
   gap: $spacing-md;
-  flex-basis: 500px;
-  flex-shrink: 1;
-  flex-grow: 0;
+  width: calc(50% - ($spacing-4xl / 2));
+  flex: 0 0 auto;
 }
 
 .projects__label {
   font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
-  color: $text-muted;
+  color: $text-dark;
   text-transform: uppercase;
   letter-spacing: $letter-spacing-wide;
 }
@@ -53,164 +52,45 @@
   margin: 0;
 }
 
-// Project Card
-.projects__card {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-lg;
-  flex-basis: 500px;
-  flex-grow: 0;
-  flex-shrink: 1;
+// Project Card Component Sizing - all cards 50%
+app-project-card {
+  width: calc(50% - ($spacing-4xl / 2));
+  flex: 0 0 auto;
 }
 
-.projects__card-image-wrapper {
-  position: relative;
-  overflow: hidden;
-  border-radius: $radius-lg;
-  cursor: pointer;
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40%;
-    background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-    opacity: 0;
-    transition: opacity $transition-base;
-    z-index: 1;
+// Keyframe animation for underline clip-path
+@keyframes underlineReveal {
+  0% {
+    clip-path: inset(0 100% 0 0);  // Hidden - clipped from right
   }
-
-  &:hover::after {
-    opacity: 1;
+  7.14% {
+    clip-path: inset(0 0 0 0);  // Fully visible - revealed left to right (0.5s of 7s)
   }
-
-  &:hover .projects__card-image {
-    transform: scale(1.1);
+  50% {
+    clip-path: inset(0 0 0 0);  // Stay visible for 3 seconds (7.14% to 50% = 42.86% of 7s ≈ 3s)
   }
-
-  &:hover .projects__card-hover-link {
-    opacity: 1;
+  57.14% {
+    clip-path: inset(0 100% 0 0);  // Hidden - wiped right to left (0.5s of 7s)
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);  // Stay hidden for 3 seconds delay (57.14% to 100% = 42.86% of 7s ≈ 3s)
   }
 }
 
-.projects__card-image {
-  width: 100%;
+.projects__underline {
+  margin-top: -$spacing-sm;
+  margin-bottom: $spacing-md;
+  width: 300px;
   height: auto;
-  border-radius: $radius-lg;
-  object-fit: cover;
   display: block;
-  transition: transform $transition-slower;
-}
-
-.projects__card-hover-link {
-  position: absolute;
-  bottom: $spacing-lg;
-  right: $spacing-lg;
-  opacity: 0;
-  transition: opacity $transition-base;
-  text-decoration: none;
-  z-index: 2;
-}
-
-.projects .projects__card .projects__card-image-wrapper .projects__card-hover-link .projects__card-hover-button {
-  box-sizing: border-box;
-  display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 24px;
-  gap: 10px;
-  border: 1px solid $outline-white;
-  border-radius: 100px;
-  background: rgba(0, 0, 0, 0.01);
-  box-shadow: $shadow-button;
-  color: $text-primary;
-  font-family: $font-primary;
-  font-weight: $font-weight-medium;
-  font-size: $font-size-md;
-  line-height: $line-height-normal;
-  text-decoration: none;
-  transition: all $transition-base;
-  cursor: pointer;
-
-  &:hover {
-    border: 1px solid $outline-white;
-    background-color: $coral-orange;
-    color: $text-primary;
-    transform: translate(2px, 4px);
-    box-shadow: none;
-  }
-}
-
-.projects__card-content {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-sm;
-  flex: 1;
-}
-
-.projects__card-title {
-  font-size: $font-size-3xl;
-  font-weight: $font-weight-black;
-  color: $text-dark;
-  margin: 0;
-}
-
-.projects__card-tech {
-  font-size: $font-size-sm;
-  font-weight: $font-weight-semibold;
-  color: $primary-blue;
-  margin: 0;
-}
-
-.projects__card-description {
-  font-size: $font-size-base;
-  font-weight: $font-weight-normal;
-  line-height: $line-height-relaxed;
-  color: $text-dark;
-  margin: 0;
-}
-
-.projects__card-buttons {
-  display: flex;
-  gap: $spacing-md;
-  margin-top: $spacing-sm;
-}
-
-.projects__card-button {
-  padding: 12px 24px;
-  border-radius: $radius-full;
-  font-size: $font-size-base;
-  font-weight: $font-weight-medium;
-  text-decoration: none;
-  transition: all $transition-base;
-  cursor: pointer;
-
-  &--primary {
-    background-color: $primary-blue;
-    color: $text-primary;
-    border: 2px solid $primary-blue;
-
-    &:hover {
-      background-color: transparent;
-      color: $primary-blue;
-      transform: translateY(-2px);
-    }
-  }
-
-  &--secondary {
-    background-color: transparent;
-    color: $text-dark;
-    border: 2px solid $text-dark;
-
-    &:hover {
-      background-color: $text-dark;
-      color: $text-primary;
-      transform: translateY(-2px);
-    }
-  }
+  clip-path: inset(0 100% 0 0);
+  animation: underlineReveal 7s ease-in-out infinite;
+  // 7s total: 0.5s reveal + 3s visible + 0.5s wipe + 3s delay
+  // Math breakdown:
+  // - 0% → 7.14%: 0.5s / 7s = 0.0714 = 7.14% (reveal animation)
+  // - 7.14% → 50%: 3s / 7s = 0.4286 = 42.86% duration (visible state)
+  // - 50% → 57.14%: 0.5s / 7s = 0.0714 = 7.14% (wipe animation)
+  // - 57.14% → 100%: 3s / 7s = 0.4286 = 42.86% duration (hidden delay)
 }
 
 // ========================================
@@ -219,19 +99,17 @@
 
 @include mobile {
   .projects {
-    padding: $spacing-2xl 0;
+    padding: $spacing-xl 0;
   }
 
   .projects__container {
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    gap: $spacing-xl;
+    gap: $spacing-lg;
     flex-direction: column;
   }
 
   .projects__header {
-    flex-basis: 100%;
-    max-width: 100%;
     text-align: center;
   }
 
@@ -245,39 +123,10 @@
 
   .projects__description {
     font-size: $font-size-sm;
-  }
-
-  .projects__card {
-    flex-basis: 100%;
     max-width: 100%;
   }
 
-  .projects__card-content {
-    padding: $spacing-md;
-  }
-
-  .projects__card-title {
-    font-size: $font-size-xl;
-  }
-
-  .projects__card-description {
-    font-size: $font-size-sm;
-  }
-
-  .projects__card-buttons {
-    flex-direction: column;
-    gap: $spacing-sm;
-  }
-
-  .projects__card-button {
+  app-project-card {
     width: 100%;
-    text-align: center;
-    font-size: $font-size-sm;
-    padding: 10px 20px;
-  }
-
-  .projects__card-hover-button {
-    font-size: $font-size-sm;
-    padding: 10px 20px;
   }
 }

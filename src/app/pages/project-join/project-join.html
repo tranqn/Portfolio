@@ -14,83 +14,92 @@
 
     <!-- Main Content Grid -->
     <div class="project-join__content">
-      <!-- Left Column: Project Details -->
-      <div class="project-join__details">
-        <h1 class="project-join__title">
-          {{ projectTitle }}
-          <span class="project-join__title-underline"></span>
-        </h1>
+      @if (project) {
+        <!-- Left Column: Project Details -->
+        <div class="project-join__details">
+          <h1 class="project-join__title">
+            {{ project.title }}
+            <span class="project-join__title-underline"></span>
+          </h1>
 
-        <section class="project-join__section">
-          <h2 class="project-join__section-title">Description</h2>
-          <p class="project-join__text">
-            Task manager inspired by the Kanban System. Create and organize tasks using drag and drop
-            functions, assign users and categories.
-          </p>
-        </section>
+          <section class="project-join__section">
+            <h2 class="project-join__section-title">Description</h2>
+            <p class="project-join__text">
+              {{ project.description }}
+            </p>
+          </section>
 
-        <section class="project-join__section">
-          <h2 class="project-join__section-title">Implementation Details</h2>
-          <p class="project-join__text">
-            As the sole developer, I was responsible for the Frontend, designing and implementing user
-            interactions, and ensuring responsiveness to work independently at every stage of the
-            development process.
-          </p>
-        </section>
+          <section class="project-join__section">
+            <h2 class="project-join__section-title">Implementation Details</h2>
+            <p class="project-join__text">
+              As the sole developer, I was responsible for the Frontend, designing and implementing user
+              interactions, and ensuring responsiveness to work independently at every stage of the
+              development process.
+            </p>
+          </section>
 
-        <div class="project-join__duration">
-          <strong>Duration:</strong> 5 weeks
-        </div>
-
-        <div class="project-join__tech-stack">
-          @for (tech of techStack; track tech.name) {
-            <div class="project-join__tech-item">
-              <img [src]="tech.icon" [alt]="tech.name" class="project-join__tech-icon" />
-              <span class="project-join__tech-name">{{ tech.name }}</span>
+          @if (project.duration) {
+            <div class="project-join__duration">
+              <strong>Duration:</strong> {{ project.duration }}
             </div>
           }
-        </div>
-      </div>
 
-      <!-- Right Column: Project Preview -->
-      <div class="project-join__preview">
-        <div class="project-join__image-wrapper">
-          <img
-            src="/img/project_pages/join.svg"
-            alt="Join Project Screenshot"
-            class="project-join__image"
-          />
-          <img
-            src="/img/shared/featured.svg"
-            alt="Featured Project"
-            class="project-join__sticker"
-          />
+          <div class="project-join__tech-stack">
+            @for (tech of project.techStack; track tech.name) {
+              <div class="project-join__tech-item">
+                <img [src]="tech.icon" [alt]="tech.name" class="project-join__tech-icon" />
+                <span class="project-join__tech-name">{{ tech.name }}</span>
+              </div>
+            }
+          </div>
         </div>
 
-        <div class="project-join__actions">
-          <a
-            href="https://github.com/yourusername/join"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-join__button">
-            GitHub
+        <!-- Right Column: Project Preview -->
+        <div class="project-join__preview">
+          <div class="project-join__image-wrapper">
+            <img
+              [src]="project.image"
+              [alt]="project.title + ' Screenshot'"
+              class="project-join__image"
+            />
+            @if (project.featured) {
+              <img
+                src="/img/shared/featured.svg"
+                alt="Featured Project"
+                class="project-join__sticker"
+              />
+            }
+          </div>
+
+          <div class="project-join__actions">
+            @if (project.githubUrl) {
+              <a
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-join__button">
+                GitHub
+              </a>
+            }
+            @if (project.liveUrl) {
+              <a
+                [href]="project.liveUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="project-join__button project-join__button--primary">
+                Live Test
+              </a>
+            }
+          </div>
+
+          <a routerLink="/projects/pollo-loco" class="project-join__next">
+            Next Project
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
           </a>
-          <a
-            href="https://join.example.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="project-join__button project-join__button--primary">
-            Live Test
-          </a>
         </div>
-
-        <a routerLink="/projects/pollo-loco" class="project-join__next">
-          Next Project
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-      </div>
+      }
     </div>
   </div>
 </main>

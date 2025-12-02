@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-
-interface Letter {
-  char: string;
-  isUpperCase: boolean;
-}
+import { Letter } from '../../models/letter.model';
 
 @Component({
   selector: 'app-hero',

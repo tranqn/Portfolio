@@ -1,0 +1,163 @@
+@use '../../../styles/variables' as *;
+
+// ========================================
+// PRIVACY POLICY PAGE
+// ========================================
+
+// Hero-like section that shares background with header overlay
+.privacy-header {
+  position: relative;
+  min-height: 100vh;
+  background-image: url('/img/skills/Skills BG.png');
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: $dark-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.privacy-header__container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding-left: $container-padding-x;
+  padding-right: $container-padding-x;
+  padding-top: 90px; // Account for header height
+}
+
+.privacy-header__title {
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-black;
+  color: $text-primary;
+  margin: 0;
+  line-height: $line-height-tight;
+}
+
+.privacy-content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: $spacing-4xl $container-padding-x;
+}
+
+.privacy-content h2 {
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-bold;
+  color: $primary-blue;
+  margin-top: $spacing-3xl;
+  margin-bottom: $spacing-lg;
+}
+
+.privacy-content h3 {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semibold;
+  color: $text-dark;
+  margin-top: $spacing-2xl;
+  margin-bottom: $spacing-md;
+}
+
+.privacy-content p {
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-relaxed;
+  color: $text-dark;
+  margin-bottom: $spacing-lg;
+}
+
+.privacy-content a {
+  color: $primary-blue;
+  text-decoration: underline;
+  transition: color $transition-base;
+
+  &:hover {
+    color: darken($primary-blue, 15%);
+  }
+}
+
+// ========================================
+// FOOTER OVERRIDES FOR PRIVACY POLICY PAGE
+// ========================================
+
+// Make footer text dark and adjust layout - scoped to privacy policy page only
+:host {
+  ::ng-deep .footer {
+    .footer__container {
+      gap: $spacing-2xl; // Increase spacing between logo/copyright and links
+    }
+
+    .footer__container__top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+
+    .footer__copyright {
+      color: $text-dark;
+    }
+
+    .footer__link {
+      color: $text-dark;
+
+      &:hover {
+        color: $primary-blue;
+      }
+    }
+
+    .footer__button {
+      border-color: $text-dark;
+      color: $text-dark;
+
+      &:hover {
+        border-color: $primary-blue;
+        color: $text-primary;
+      }
+    }
+
+    .footer__button-icon {
+      filter: invert(0); // Dark icons for light background
+    }
+  }
+}
+
+// ========================================
+// RESPONSIVE
+// ========================================
+
+@include mobile {
+  .privacy-header {
+    min-height: 60vh;
+  }
+
+  .privacy-header__container {
+    padding-left: $container-padding-x-mobile;
+    padding-right: $container-padding-x-mobile;
+    padding-top: 90px;
+  }
+
+  .privacy-header__title {
+    font-size: $font-size-5xl-mobile;
+    text-align: center;
+  }
+
+  .privacy-content {
+    padding: $spacing-2xl $container-padding-x-mobile;
+  }
+
+  .privacy-content h2 {
+    font-size: $font-size-xl;
+    margin-top: $spacing-2xl;
+    margin-bottom: $spacing-md;
+  }
+
+  .privacy-content h3 {
+    font-size: $font-size-lg;
+    margin-top: $spacing-lg;
+    margin-bottom: $spacing-sm;
+  }
+
+  .privacy-content p {
+    font-size: $font-size-sm;
+    margin-bottom: $spacing-md;
+  }
+}

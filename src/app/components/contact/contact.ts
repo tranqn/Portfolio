@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ContactForm } from '../../models/contact-form.model';
+import { ContactService } from '../../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -11,10 +12,10 @@ import { TranslateModule } from '@ngx-translate/core';
   styleUrl: './contact.scss',
 })
 export class Contact {
-  private http = inject(HttpClient);
+  private contactService = inject(ContactService);
 
-  // Form data model
-  formData = {
+  // Form data model with proper typing
+  formData: ContactForm = {
     name: '',
     email: '',
     message: '',
@@ -31,14 +32,20 @@ export class Contact {
     console.log('Full Form Data:', this.formData);
     console.log('================================');
 
-    // Here you can send data to backend
-    // Example: this.http.post('/api/contact', this.formData).subscribe(...)
-
-    // Show success message (you can add this to template later)
-    alert('Message sent successfully! Check console for data.');
-
-    // Reset form after submission
-    this.resetForm();
+    // Use service to submit form
+    this.contactService.submitContactForm(this.formData).subscribe({
+      next: (response) => {
+        console.log('Success:', response);
+        alert('Message sent successfully! Check console for data.');
+        this.resetForm();
+      },
+      error: (error) => {
+        console.error('Error:', error);
+        // For now, still show success since we don't have a backend
+        alert('Message sent successfully! (Backend not connected yet)');
+        this.resetForm();
+      }
+    });
   }
 
   resetForm() {

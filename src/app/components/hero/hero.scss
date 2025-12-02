@@ -12,6 +12,7 @@
   background-repeat: no-repeat;
   background-color: transparent;
   object-fit: cover;
+  padding-top: 90px; // Top padding matches header height for overlay
   margin-bottom: 0;
 }
 
@@ -20,8 +21,7 @@
   align-items: center;
   justify-content: center;
   max-width: $container-max-width;
-  height: 100vh;
-  margin: 0 auto;
+  margin: 0 auto 22vh auto; // Proportional bottom margin creates gap to hero section bottom
   padding-left: $container-padding-x;
   padding-right: $container-padding-x;
 }
@@ -79,6 +79,7 @@
   flex-direction: column;
   align-items: center;
   gap: $spacing-lg;
+  padding-top: $spacing-xl;
   width: 100%;
 }
 
@@ -205,17 +206,35 @@
   justify-content: center;
 }
 
-.hero__polaroid {
-  width: 230px;
+.hero__polaroid-wrapper {
+  position: relative;
+  width: 180px;
   height: auto;
-  object-fit: contain;
-  filter: drop-shadow($shadow-polaroid);
   transform: rotate(8deg);
   transition: transform $transition-slow;
 
   &:hover {
     transform: rotate(5deg) scale(1.02);
   }
+}
+
+.hero__polaroid-photo {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: calc(100% - 28px);
+  height: auto;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero__polaroid {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow($shadow-polaroid);
+  z-index: 2;
 }
 
 // Bottom Section
@@ -365,7 +384,8 @@
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    padding-top: 90px;
+    padding-top: 60px;
+    margin: 0 auto 15vh auto;
   }
 
   .hero__social {
@@ -374,7 +394,7 @@
     height: auto;
     width: 100%;
     gap: $spacing-md;
-    margin-bottom: $spacing-lg;
+    margin-bottom: $spacing-md;
   }
 
   .hero__social-link {
@@ -423,8 +443,8 @@
     }
   }
 
-  .hero__polaroid {
-    width: 160px;
+  .hero__polaroid-wrapper {
+    width: 180px;
   }
 
   .hero__content-bottom {
@@ -434,7 +454,7 @@
 
   .hero__button {
     width: 160px;
-    font-size: $font-size-base;
+    font-size: $font-size-sm;
     padding: 8px 16px;
 
     &:hover {

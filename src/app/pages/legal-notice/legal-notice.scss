@@ -4,62 +4,76 @@
 // LEGAL NOTICE PAGE
 // ========================================
 
-.legal-page {
-  min-height: 100vh;
-  background-color: $light-bg;
-}
-
+// Hero-like section that shares background with header overlay
 .legal-header {
   position: relative;
+  min-height: 500px;
   background-image: url('/img/skills/Skills BG.png');
-  background-size: 100% 100%;
-  background-position: center;
+  background-size: cover;
+  background-position: bottom;
   background-repeat: no-repeat;
-  padding: $spacing-4xl 0 $spacing-6xl 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .legal-header__container {
+  width: 100%;
   max-width: $container-max-width;
   margin: 0 auto;
-  padding-left: $container-padding-x;
-  padding-right: $container-padding-x;
+  padding-left: 120px;
+  padding-right: 120px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: start;
 }
 
 .legal-header__title {
-  font-size: $font-size-5xl;
+  font-size: $font-size-4xl;
   font-weight: $font-weight-black;
   color: $text-primary;
   margin: 0;
+  line-height: $line-height-tight;
 }
 
 .legal-content {
-  max-width: 900px;
+  max-width: $container-max-width;
   margin: 0 auto;
-  padding: $spacing-4xl $container-padding-x;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding: $spacing-3xl $container-padding-x $spacing-4xl $container-padding-x;
+  background-color: $light-bg;
 }
 
 .legal-content h2 {
-  font-size: $font-size-2xl;
+  font-size: $font-size-xl;
   font-weight: $font-weight-bold;
   color: $primary-blue;
-  margin-top: $spacing-3xl;
-  margin-bottom: $spacing-lg;
+  margin-top: $spacing-2xl;
+  margin-bottom: $spacing-md;
+
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 .legal-content h3 {
-  font-size: $font-size-xl;
+  font-size: $font-size-lg;
   font-weight: $font-weight-semibold;
   color: $text-dark;
-  margin-top: $spacing-2xl;
-  margin-bottom: $spacing-md;
+  margin-top: $spacing-xl;
+  margin-bottom: $spacing-sm;
 }
 
 .legal-content p {
-  font-size: $font-size-base;
+  font-size: $font-size-sm;
   font-weight: $font-weight-normal;
-  line-height: $line-height-relaxed;
+  line-height: $line-height-normal;
   color: $text-dark;
-  margin-bottom: $spacing-lg;
+  margin-bottom: $spacing-md;
 }
 
 .legal-content a {
@@ -73,21 +87,68 @@
 }
 
 // ========================================
+// FOOTER OVERRIDES FOR LEGAL NOTICE PAGE
+// ========================================
+
+// Make footer text dark and adjust layout - scoped to legal notice page only
+:host {
+  ::ng-deep .footer {
+    .footer__container {
+      gap: $spacing-2xl; // Increase spacing between logo/copyright and links
+    }
+
+    .footer__container__top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $spacing-sm;
+    }
+
+    .footer__copyright {
+      color: $text-dark;
+    }
+
+    .footer__link {
+      color: $text-dark;
+
+      &:hover {
+        color: $primary-blue;
+      }
+    }
+
+    .footer__button {
+      border-color: $text-dark;
+      color: $text-dark;
+
+      &:hover {
+        border-color: $primary-blue;
+        color: $text-primary;
+      }
+    }
+
+    .footer__button-icon {
+      filter: invert(0); // Dark icons for light background
+    }
+  }
+}
+
+// ========================================
 // RESPONSIVE
 // ========================================
 
 @include mobile {
   .legal-header {
-    padding: $spacing-2xl 0 $spacing-3xl 0;
+    min-height: 60vh;
   }
 
   .legal-header__container {
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
+    padding-top: 90px;
   }
 
   .legal-header__title {
     font-size: $font-size-5xl-mobile;
+    text-align: center;
   }
 
   .legal-content {

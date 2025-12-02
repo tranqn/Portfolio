@@ -309,14 +309,14 @@
 
 @include mobile {
   .skills {
-    padding: $spacing-2xl 0 $spacing-4xl 0;
+    padding: $spacing-xl 0 $spacing-2xl 0;
   }
 
   .skills__container {
     flex-direction: column;
     padding-left: $container-padding-x-mobile;
     padding-right: $container-padding-x-mobile;
-    gap: $spacing-xl;
+    gap: $spacing-lg;
     align-items: center;
   }
 
@@ -333,14 +333,22 @@
     font-size: $font-size-3xl-mobile;
   }
 
+  .skills__description {
+    background-image: url('/img/skills/1B.Mobile.png');
+    background-size: 100% 100%;
+    min-width: auto;
+    max-width: 100%;
+  }
+
   .skills__text {
     font-size: $font-size-sm;
-    padding: $spacing-md $spacing-sm;
+    padding: $spacing-lg $spacing-md;
+    line-height: $line-height-relaxed;
   }
 
   .skills__badge {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
   }
 
   .skills__badge-text {
@@ -365,13 +373,13 @@
   .skills__icons {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-lg;
+    gap: $spacing-md;
     max-width: 100%;
     justify-items: center;
   }
 
   .skills__icon {
-    width: 70px;
+    width: 75px;
   }
 
   .skills__icon-image {

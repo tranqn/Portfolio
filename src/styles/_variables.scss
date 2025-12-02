@@ -2,12 +2,12 @@
 // COLOR PALETTE (Based on Portfolio_demo.jpg)
 // ========================================
 
-// Primary Colors (from Figma specs)
+// Primary Colors
 $dark-bg: #0E1013;              // Version 6/Black - hero, skills, contact, footer
 $white: #F8F9FA;                // Version 6/White - text and light sections
 $light-bg: #F8F9FA;             // Light section backgrounds (about, projects)
 
-// Accent Colors (from Figma specs)
+// Accent Colors
 $primary-blue: #3355FF;         // Version 6/Blue - Logo, links, accents
 $bright-yellow: #F7C518;        // Version 6/Yellow - Form underlines, arrows
 $coral-orange: #F87A55;         // Version 6/Orange - Testimonials, stickers
@@ -36,7 +36,7 @@ $shadow-medium: rgba(0, 0, 0, 0.16);
 $shadow-dark: rgba(0, 0, 0, 0.24);
 
 // ========================================
-// TYPOGRAPHY (Based on Figma specs)
+// TYPOGRAPHY
 // ========================================
 
 // Font Families
@@ -44,7 +44,7 @@ $font-primary: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe 
 $font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 $font-handwritten: 'Kalam', cursive; // For polaroid caption
 
-// Font Sizes (PX-BASED - from Figma)
+// Font Sizes (PX-BASED)
 $font-size-xs: 12px;
 $font-size-sm: 14px;
 $font-size-base: 16px;
@@ -57,10 +57,10 @@ $font-size-4xl: 64px;          // Section titles (About me, Skill set, Projects)
 $font-size-5xl: 128px;         // Hero "Frontend DEVELOPER"
 
 // Responsive Font Sizes
-$font-size-5xl-mobile: 48px;
-$font-size-4xl-mobile: 36px;
-$font-size-3xl-mobile: 32px;
-$font-size-2xl-mobile: 24px;
+$font-size-5xl-mobile: 56px;    // Hero title (increased from 48px)
+$font-size-4xl-mobile: 36px;    // Section titles (keep current)
+$font-size-3xl-mobile: 36px;    // Increased from 32px
+$font-size-2xl-mobile: 28px;    // Increased from 24px
 
 // Font Weights (Bricolage Grotesque)
 $font-weight-light: 300;
@@ -70,7 +70,7 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 
-// Line Heights (from Figma)
+// Line Heights
 $line-height-tight: 1.0;       // 100% for large headings
 $line-height-normal: 1.2;      // 120% for body text
 $line-height-relaxed: 1.375;   // 137.5% for paragraphs (22px/16px)
@@ -81,7 +81,7 @@ $letter-spacing-normal: 0;
 $letter-spacing-wide: 0.05em;
 
 // ========================================
-// SPACING (Based on Figma specs)
+// SPACING
 // ========================================
 
 $spacing-xs: 8px;
@@ -97,8 +97,8 @@ $spacing-6xl: 200px;
 $spacing-7xl: 240px;
 $spacing-8xl: 320px;
 
-// Container (from Figma: 1440px with 120px padding)
-$container-padding-x: 120px;
+// Container (1440px max-width)
+$container-padding-x: 80px;
 $container-padding-x-left: 72px;  // Asymmetric left padding for project pages
 $container-padding-x-mobile: 24px;
 $container-max-width: 1440px;
@@ -118,7 +118,7 @@ $breakpoint-2xl: 1920px;        // Desktop large
 // EFFECTS
 // ========================================
 
-// Border Radius (from Figma)
+// Border Radius
 $radius-sm: 4px;               // Testimonial cards
 $radius-md: 8px;
 $radius-lg: 20px;              // Project thumbnails
@@ -131,7 +131,7 @@ $transition-base: 150ms ease;
 $transition-slow: 200ms ease;
 $transition-slower: 300ms ease;
 
-// Shadows (from Figma)
+// Shadows
 $shadow-sm: 0 2px 4px $shadow-light;
 $shadow-md: 0 4px 8px $shadow-medium;
 $shadow-lg: 0 8px 16px $shadow-dark;
@@ -221,7 +221,7 @@ $z-tooltip: 700;
   outline: none;
 }
 
-// Outlined button with shadow (from Figma)
+// Outlined button with shadow
 @mixin button-outlined($color: $outline-white, $hover-color: $primary-blue) {
   @include button-reset;
   display: inline-flex;
