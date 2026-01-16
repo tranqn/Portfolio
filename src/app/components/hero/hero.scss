@@ -338,41 +338,11 @@
   }
 }
 
-// Get in Touch button (CTA) - standard button with orange hover
+// CTA Container
 .hero__cta-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.hero__cta-button {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 12px 24px;
-  gap: 10px;
-  border: 1px solid $outline-white;
-  border-radius: 100px;
-  background: rgba(0, 0, 0, 0.01);
-  box-shadow: $shadow-button;  // 2px 4px 0px white
-  color: $text-primary;
-  font-family: $font-primary;
-  font-weight: $font-weight-medium;
-  font-size: $font-size-md;
-  line-height: $line-height-normal;
-  text-decoration: none;
-  transition: all $transition-base;
-  cursor: pointer;
-
-  &:hover {
-    border: 1px solid $outline-white;
-    background-color: $coral-orange;
-    color: $text-primary;
-    transform: translate(2px, 4px);
-    box-shadow: none;
-  }
 }
 
 // ========================================
@@ -462,8 +432,4 @@
     }
   }
 
-  .hero__cta-button {
-    font-size: $font-size-base;
-    padding: 10px 20px;
-  }
 }

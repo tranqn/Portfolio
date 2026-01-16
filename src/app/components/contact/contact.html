@@ -35,13 +35,12 @@
           required>
 
         <label for="message">{{ 'CONTACT.MESSAGE_LABEL' | translate }}</label>
-        <textarea
+        <input
           [(ngModel)]="formData.message"
           id="message"
           name="message"
           [placeholder]="'CONTACT.MESSAGE_PLACEHOLDER' | translate"
-          rows="6"
-          required></textarea>
+          required>
 
         <div class="contact__form-checkbox">
           <input
@@ -55,7 +54,11 @@
           </label>
         </div>
 
-        <button type="submit" [disabled]="!contactForm.valid">{{ 'CONTACT.SUBMIT' | translate }}</button>
+        <app-cta-button
+          type="submit"
+          text="Send"
+          [disabled]="!contactForm.valid">
+        </app-cta-button>
 
       </form>
     </div>

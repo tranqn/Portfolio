@@ -73,7 +73,6 @@
   font-weight: $font-weight-normal;
   line-height: $line-height-relaxed;
   color: $text-primary;
-  margin: 0;
 }
 
 // Keyframe animation for underline clip-path
@@ -96,7 +95,7 @@
 }
 
 .contact__underline {
-  margin-top: -$spacing-sm;
+  margin-top: $spacing-sm;
   margin-bottom: $spacing-md;
   width: 300px;
   height: auto;
@@ -135,7 +134,6 @@
 .contact__form {
   display: flex;
   flex-direction: column;
-  gap: $spacing-sm;
   width: 100%;
   max-width: 600px;
 
@@ -143,22 +141,23 @@
     font-size: $font-size-base;
     font-weight: $font-weight-normal;
     color: $text-primary;
-    margin-bottom: $spacing-xs;
     display: block;
+    padding-left: $spacing-sm;
   }
 
   input,
   textarea {
     width: 100%;
-    padding: $spacing-sm 0;
+    padding: $spacing-sm 0 $spacing-sm $spacing-sm;
     background-color: transparent;
     border: none;
-    border-bottom: 2px solid $outline-white;
+    border-bottom: 2px solid $bright-yellow;
     border-radius: 0;
     color: $text-primary;
     font-size: $font-size-base;
     font-family: $font-primary;
     transition: border-color $transition-base;
+    margin-bottom: $spacing-sm;
 
     &::placeholder {
       color: rgba($text-primary, 0.5);
@@ -178,32 +177,18 @@
     resize: vertical;
     min-height: 100px;
     padding-top: $spacing-sm;
+    border-bottom: 2px solid $bright-yellow;
+
+    &:focus,
+    &:hover {
+      border-bottom-color: $bright-yellow;
+    }
   }
 
-  button[type="submit"] {
-    align-self: flex-start;
-    padding: $spacing-md $spacing-2xl;
-    background-color: transparent;
-    border: 2px solid $outline-white;
-    border-radius: 50px;
-    color: $text-primary;
-    font-size: $font-size-base;
-    font-weight: $font-weight-medium;
-    font-family: $font-primary;
-    cursor: pointer;
-    transition: all $transition-base;
-
-    &:hover:not(:disabled) {
-      background-color: $primary-blue;
-      border-color: $primary-blue;
-      color: $text-primary;
-      transform: scale(1.05);
-    }
-
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+  app-cta-button {
+    align-self: flex-end;
+    --cta-min-width: 120px;
+    --cta-padding: 6px 24px;
   }
 }
 

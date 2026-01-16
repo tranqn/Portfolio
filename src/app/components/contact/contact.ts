@@ -1,13 +1,15 @@
 import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ContactForm } from '../../models/contact-form.model';
 import { ContactService } from '../../services/contact.service';
+import { CtaButton } from '../../shared/cta-button/cta-button';
 
 @Component({
   selector: 'app-contact',
-  imports: [FormsModule, RouterLink, TranslateModule],
+  imports: [CommonModule, FormsModule, RouterLink, TranslateModule, CtaButton],
   templateUrl: './contact.html',
   styleUrl: './contact.scss',
 })
