@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="hero__content-right">
-          <div class="hero__polaroid-wrapper">
+          <div class="hero__polaroid-wrapper hero__polaroid-wrapper--desktop">
             <img src="/img/hero/pb.jpg" alt="Nam" class="hero__polaroid-photo">
             <img src="/img/hero/Polaroid Frame.png" alt="Polaroid Frame" class="hero__polaroid">
           </div>
@@ -40,6 +40,12 @@
         <div class="hero__cta-container">
           <app-cta-button [translateKey]="'HERO.GET_IN_TOUCH'" href="#contact"></app-cta-button>
         </div>
+      </div>
+
+      <!-- Polaroid for mobile (below CTA) -->
+      <div class="hero__polaroid-wrapper hero__polaroid-wrapper--mobile">
+        <img src="/img/hero/pb.jpg" alt="Nam" class="hero__polaroid-photo">
+        <img src="/img/hero/Polaroid Frame.png" alt="Polaroid Frame" class="hero__polaroid">
       </div>
     </div>
   </div>

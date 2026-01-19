@@ -4,25 +4,69 @@
       <img src="logo/logo.svg" alt="QT Logo" class="header__logo-image">
     </a>
 
-    <a href="#about" class="header__nav-link header__nav-link--about">{{ 'HEADER.ABOUT' | translate }}</a>
-    <a href="#skills" class="header__nav-link header__nav-link--skills">{{ 'HEADER.SKILLS' | translate }}</a>
-    <a href="#projects" class="header__nav-link header__nav-link--projects">{{ 'HEADER.PROJECTS' | translate }}</a>
-    <a href="#contact" class="header__nav-link header__nav-link--contact">{{ 'HEADER.CONTACT' | translate }}</a>
+    <!-- Desktop Navigation -->
+    <div class="header__desktop-nav">
+      <a href="#about" class="header__nav-link header__nav-link--about">{{ 'HEADER.ABOUT' | translate }}</a>
+      <a href="#skills" class="header__nav-link header__nav-link--skills">{{ 'HEADER.SKILLS' | translate }}</a>
+      <a href="#projects" class="header__nav-link header__nav-link--projects">{{ 'HEADER.PROJECTS' | translate }}</a>
+      <a href="#contact" class="header__nav-link header__nav-link--contact">{{ 'HEADER.CONTACT' | translate }}</a>
 
-    <div class="header__lang">
-      <span
-        class="header__lang-option"
-        [class.header__lang-option--active]="currentLang === 'en'"
-        (click)="switchLanguage('en')">
-        EN
-      </span>
-      <span class="header__lang-divider">|</span>
-      <span
-        class="header__lang-option"
-        [class.header__lang-option--active]="currentLang === 'de'"
-        (click)="switchLanguage('de')">
-        DE
-      </span>
+      <div class="header__lang">
+        <span
+          class="header__lang-option"
+          [class.header__lang-option--active]="currentLang === 'en'"
+          (click)="switchLanguage('en')">
+          EN
+        </span>
+        <span class="header__lang-divider">|</span>
+        <span
+          class="header__lang-option"
+          [class.header__lang-option--active]="currentLang === 'de'"
+          (click)="switchLanguage('de')">
+          DE
+        </span>
+      </div>
     </div>
+
+    <!-- Burger Menu Button (Mobile) -->
+    <button
+      class="header__burger"
+      [class.header__burger--active]="menuOpen"
+      (click)="toggleMenu()"
+      aria-label="Toggle menu">
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+      <span class="header__burger-line"></span>
+    </button>
   </nav>
+
+  <!-- Mobile Overlay Menu -->
+  <div class="header__overlay" [class.header__overlay--open]="menuOpen">
+    <div class="header__overlay-content">
+      <nav class="header__mobile-nav">
+        <a href="#about" class="header__mobile-link" (click)="closeMenu()">{{ 'HEADER.ABOUT' | translate }}</a>
+        <a href="#skills" class="header__mobile-link" (click)="closeMenu()">{{ 'HEADER.SKILLS' | translate }}</a>
+        <a href="#projects" class="header__mobile-link" (click)="closeMenu()">{{ 'HEADER.PROJECTS' | translate }}</a>
+        <a href="#contact" class="header__mobile-link" (click)="closeMenu()">{{ 'HEADER.CONTACT' | translate }}</a>
+
+        <div class="header__mobile-lang">
+          <span
+            class="header__lang-option"
+            [class.header__lang-option--active]="currentLang === 'en'"
+            (click)="switchLanguage('en')">
+            EN
+          </span>
+          <span class="header__lang-divider">|</span>
+          <span
+            class="header__lang-option"
+            [class.header__lang-option--active]="currentLang === 'de'"
+            (click)="switchLanguage('de')">
+            DE
+          </span>
+        </div>
+      </nav>
+
+      <app-social-links class="header__mobile-social"></app-social-links>
+    </div>
+  </div>
 </header>

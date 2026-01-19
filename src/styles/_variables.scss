@@ -11,12 +11,7 @@ $light-bg: #F8F9FA;             // Light section backgrounds (about, projects)
 $primary-blue: #3355FF;         // Version 6/Blue - Logo, links, accents
 $bright-yellow: #F7C518;        // Version 6/Yellow - Form underlines, arrows
 $coral-orange: #F87A55;         // Version 6/Orange - Testimonials, stickers
-$blue-sticky: #3355FF;          // Blue sticky note
-
-// Sticker Colors (from design)
 $sticker-yellow: #F7C518;       // Yellow ripped paper sticker
-$sticker-blue: #3355FF;         // Blue ripped paper sticker
-$sticker-orange: #F87A55;       // Orange ripped paper sticker
 
 // Text Colors
 $text-primary: #F8F9FA;         // Version 6/White - Primary text (on dark backgrounds)
@@ -24,11 +19,8 @@ $text-secondary: #E5E5E5;       // Secondary text (slightly dimmed)
 $text-dark: #0E1013;            // Version 6/Black - Text on light backgrounds
 $text-muted: #666666;           // Muted/label text
 
-// Border & Outline Colors
-$border-light: #E0E0E0;         // Light borders
-$border-dark: #2A2A2A;          // Dark borders
+// Outline Colors
 $outline-white: #F8F9FA;        // Button outlines on dark bg
-$outline-dark: #0E1013;         // Button outlines on light bg
 
 // Shadow Colors
 $shadow-light: rgba(0, 0, 0, 0.1);
@@ -42,7 +34,6 @@ $shadow-dark: rgba(0, 0, 0, 0.24);
 // Font Families
 $font-primary: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 $font-heading: 'Bricolage Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-$font-handwritten: 'Kalam', cursive; // For polaroid caption
 
 // Font Sizes (PX-BASED)
 $font-size-xs: 12px;
@@ -60,10 +51,9 @@ $font-size-5xl: 128px;         // Hero "Frontend DEVELOPER"
 $font-size-5xl-mobile: 56px;    // Hero title (increased from 48px)
 $font-size-4xl-mobile: 36px;    // Section titles (keep current)
 $font-size-3xl-mobile: 36px;    // Increased from 32px
-$font-size-2xl-mobile: 28px;    // Increased from 24px
+$font-size-2xl-mobile: 24px;    // Card titles
 
 // Font Weights (Bricolage Grotesque)
-$font-weight-light: 300;
 $font-weight-normal: 400;
 $font-weight-medium: 500;
 $font-weight-semibold: 600;
@@ -77,7 +67,6 @@ $line-height-relaxed: 1.375;   // 137.5% for paragraphs (22px/16px)
 
 // Letter Spacing
 $letter-spacing-tight: -0.02em;
-$letter-spacing-normal: 0;
 $letter-spacing-wide: 0.05em;
 
 // ========================================
@@ -94,8 +83,6 @@ $spacing-3xl: 88px;            // Gap between sections
 $spacing-4xl: 144px;           // Vertical section padding
 $spacing-5xl: 160px;           // Gap between main content columns (project pages)
 $spacing-6xl: 200px;
-$spacing-7xl: 240px;
-$spacing-8xl: 320px;
 
 // Container (1440px max-width)
 $container-padding-x: 80px;
@@ -107,12 +94,10 @@ $container-max-width: 1440px;
 // BREAKPOINTS
 // ========================================
 
-$breakpoint-xs: 320px;          // Mobile small
 $breakpoint-sm: 375px;          // Mobile medium
 $breakpoint-md: 768px;          // Tablet
 $breakpoint-lg: 1024px;         // Desktop small
 $breakpoint-xl: 1440px;         // Desktop
-$breakpoint-2xl: 1920px;        // Desktop large
 
 // ========================================
 // EFFECTS
@@ -141,17 +126,12 @@ $shadow-lg: 0 8px 16px $shadow-dark;
 $shadow-polaroid: 0 4px 8px $shadow-medium;
 $shadow-card: 0 4px 8px rgba(0, 0, 0, 0.16);
 $shadow-button: 2px 4px 0px $text-primary;  // Button drop shadow
-$shadow-button-dark: 2px 4px 0px $text-dark;
 
 // Z-index layers
 $z-base: 1;
-$z-dropdown: 100;
 $z-sticky: 200;
 $z-fixed: 300;
-$z-modal-backdrop: 400;
 $z-modal: 500;
-$z-popover: 600;
-$z-tooltip: 700;
 
 // ========================================
 // MIXINS
@@ -224,86 +204,12 @@ $z-tooltip: 700;
   outline: none;
 }
 
-// Outlined button with shadow
-@mixin button-outlined($color: $outline-white, $hover-color: $primary-blue) {
-  @include button-reset;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid $color;
-  padding: 12px 24px;
-  border-radius: $radius-full;
-  color: $color;
-  font-family: $font-primary;
-  font-weight: $font-weight-medium;
-  font-size: $font-size-md;
-  line-height: $line-height-normal;
-  background: rgba(0, 0, 0, 0.01);
-  box-shadow: $shadow-button;
-  transition: all $transition-base;
-  cursor: pointer;
-
-  &:hover:not(:disabled) {
-    border-color: $hover-color;
-    color: $hover-color;
-    transform: translateY(-2px);
-  }
-
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-}
-
-// Torn paper edge effect
-@mixin torn-edge($fill-color: $white, $position: bottom) {
-  position: relative;
-
-  &::after {
-    content: '';
-    position: absolute;
-    @if $position == bottom {
-      bottom: -1px;
-    } @else {
-      top: -1px;
-    }
-    left: 0;
-    width: 100%;
-    height: 100px;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,50 Q360,0 720,50 T1440,50 L1440,100 L0,100 Z' fill='#{$fill-color}'/%3E%3C/svg%3E");
-    background-size: cover;
-    pointer-events: none;
-  }
-}
-
-// Rotation effect (for stickers, testimonials)
-@mixin rotate($deg) {
-  transform: rotate(#{$deg}deg);
-}
-
-// Text shadow for better readability
-@mixin text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
 // ========================================
 // RESPONSIVE MIXINS
 // ========================================
 
 @mixin mobile {
-  @media (max-width: #{$breakpoint-md - 1px}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$breakpoint-lg}) {
+  @media (max-width: 1079px), (max-height: 719px) {
     @content;
   }
 }

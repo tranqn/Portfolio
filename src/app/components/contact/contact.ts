@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { ContactForm } from '../../models/contact-form.model';
 import { ContactService } from '../../services/contact.service';
 import { CtaButton } from '../../shared/cta-button/cta-button';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
@@ -16,46 +17,47 @@ import { CtaButton } from '../../shared/cta-button/cta-button';
 export class Contact {
   private contactService = inject(ContactService);
 
-  // Form data model with proper typing
+  http = inject(HttpClient);
+
+  // Form data model
   formData: ContactForm = {
     name: '',
     email: '',
-    message: '',
-    privacyAccepted: false
+    message: ''
   };
 
-  onSubmit() {
-    // Log all form data
-    console.log('=== CONTACT FORM SUBMISSION ===');
-    console.log('Name:', this.formData.name);
-    console.log('Email:', this.formData.email);
-    console.log('Message:', this.formData.message);
-    console.log('Privacy Accepted:', this.formData.privacyAccepted);
-    console.log('Full Form Data:', this.formData);
-    console.log('================================');
+  // Privacy checkbox (required but not sent with form data)
+  privacyAccepted = false;
 
-    // Use service to submit form
-    this.contactService.submitContactForm(this.formData).subscribe({
-      next: (response) => {
-        console.log('Success:', response);
-        alert('Message sent successfully! Check console for data.');
-        this.resetForm();
+  mailTest = false;
+
+  post = {
+    endPoint: 'http://localhost/sendMail.php',
+    body: (payload: any) => JSON.stringify(payload),
+    options: {
+      headers: {
+        'Content-Type': 'text/plain',
+        responseType: 'text',
       },
-      error: (error) => {
-        console.error('Error:', error);
-        // For now, still show success since we don't have a backend
-        alert('Message sent successfully! (Backend not connected yet)');
-        this.resetForm();
-      }
-    });
-  }
+    },
+  };
 
-  resetForm() {
-    this.formData = {
-      name: '',
-      email: '',
-      message: '',
-      privacyAccepted: false
-    };
+  onSubmit(ngForm: NgForm) {
+    if (ngForm.submitted && ngForm.form.valid && !this.mailTest) {
+      this.http.post(this.post.endPoint, this.post.body(this.formData))
+        .subscribe({
+          next: (response) => {
+
+            ngForm.resetForm();
+          },
+          error: (error) => {
+            console.error(error);
+          },
+          complete: () => console.info('send post complete'),
+        });
+    } else if (ngForm.submitted && ngForm.form.valid && this.mailTest) {
+
+      ngForm.resetForm();
+    }
   }
 }

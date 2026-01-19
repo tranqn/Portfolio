@@ -6,10 +6,9 @@
 
 .footer {
   position: relative;
+  margin-top: -264px; // Pull footer up to overlay contact's bottom padding (matches footer height)
   background-color: transparent;
-  margin-top: -251px; // Pull footer up to exactly fill contact bottom padding space (240px)
   z-index: $z-sticky; // Ensure footer overlays contact
-  
 }
 
 .footer__container {
@@ -190,7 +189,7 @@
 
 @include mobile {
   .footer {
-    margin-top: -174px;
+    margin-top: -259px; // Match contact's mobile bottom padding
     padding: $spacing-sm 0 0 0;
   }
 

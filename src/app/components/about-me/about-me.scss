@@ -35,12 +35,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform $transition-base;
-
-  &:hover {
-    transform: rotate(0deg) scale(1.02);
-    z-index: 10;
-  }
 
   &--yellow {
     top: 0;
@@ -220,10 +214,11 @@
 
   .about-me__stickers {
     width: 100%;
-    min-height: 400px;
+    min-height: 200px;
     display: flex;
     justify-content: center;
     position: relative;
+    order: 2;
   }
 
   .about-me__sticker {
@@ -231,21 +226,21 @@
 
     &--yellow {
       left: 50%;
-      top: 20px;
+      top: 0;
       transform: translateX(-50%) rotate(-3deg);
       z-index: 3;
     }
 
     &--blue {
       left: 50%;
-      top: 140px;
+      top: 60px;
       transform: translateX(-50%) rotate(2deg);
       z-index: 2;
     }
 
     &--orange {
       left: 50%;
-      top: 260px;
+      top: 120px;
       transform: translateX(-50%) rotate(5deg);
       z-index: 1;
     }
@@ -260,6 +255,7 @@
     max-width: 100%;
     text-align: center;
     gap: $spacing-md;
+    order: 1;
   }
 
   .about-me__label {
@@ -282,7 +278,7 @@
   }
 
   .about-me__button-container {
-    justify-content: center;
+    justify-content: end;
   }
 
   .about-me__button {

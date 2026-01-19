@@ -173,6 +173,16 @@
   &:hover {
     transform: rotate(5deg) scale(1.02);
   }
+
+  // Desktop version - visible by default
+  &--desktop {
+    display: block;
+  }
+
+  // Mobile version - hidden by default
+  &--mobile {
+    display: none;
+  }
 }
 
 .hero__polaroid-photo {
@@ -310,13 +320,9 @@
   }
 
   // Social Links (uses shared component with CSS variable overrides for mobile)
+  // Hide social links on mobile (they're in the burger menu)
   .hero__social {
-    --social-height: auto;
-    --social-icon-size: 32px;
-    --social-direction: row;
-    --social-justify: center;
-    --social-gap: #{$spacing-md};
-    margin-bottom: $spacing-md;
+    display: none;
   }
 
   .hero__content {
@@ -331,11 +337,11 @@
 
   .hero__content-left {
     align-items: center;
-    order: 2;
   }
 
+  // Hide the desktop polaroid container on mobile
   .hero__content-right {
-    order: 1;
+    display: none;
   }
 
   .hero__badge {
@@ -362,6 +368,17 @@
 
   .hero__polaroid-wrapper {
     width: 180px;
+
+    // Hide desktop polaroid on mobile
+    &--desktop {
+      display: none;
+    }
+
+    // Show mobile polaroid below CTA
+    &--mobile {
+      display: block;
+      margin-top: $spacing-lg;
+    }
   }
 
   .hero__content-bottom {
