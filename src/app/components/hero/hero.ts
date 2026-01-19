@@ -3,10 +3,11 @@ import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
 import { Letter } from '../../models/letter.model';
 import { CtaButton } from '../../shared/cta-button/cta-button';
+import { SocialLinks } from '../../shared/social-links/social-links';
 
 @Component({
   selector: 'app-hero',
-  imports: [TranslateModule, CommonModule, CtaButton],
+  imports: [TranslateModule, CommonModule, CtaButton, SocialLinks],
   templateUrl: './hero.html',
   styleUrl: './hero.scss',
 })

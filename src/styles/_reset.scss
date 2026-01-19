@@ -2,6 +2,7 @@
 // CSS RESET & BASE STYLES
 // ========================================
 
+@use 'sass:color';
 @use 'variables' as *;
 
 // Box sizing reset
@@ -49,7 +50,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: lighten($text-primary, 10%);
+  background: color.adjust($text-primary, $lightness: 10%);
 }
 
 // Firefox scrollbar
@@ -124,7 +125,7 @@ a {
   transition: color $transition-base;
 
   &:hover {
-    color: lighten($primary-blue, 10%);
+    color: color.adjust($primary-blue, $lightness: 10%);
   }
 }
 
@@ -231,7 +232,7 @@ code {
   border-radius: $radius-sm;
 
   &:hover {
-    background: lighten($primary-blue, 10%);
+    background: color.adjust($primary-blue, $lightness: 10%);
   }
 }
 
